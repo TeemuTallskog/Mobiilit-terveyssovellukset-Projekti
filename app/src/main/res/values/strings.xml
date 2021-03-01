@@ -3,4 +3,7 @@
     <string name="Test">Test</string>
     <string name="Submit">Submit</string>
     <string name="Remove">Remove</string>
+    <string name="WeightKey">0.0</string>
+    <string name="Kg">Kg</string>
+    <string name="PlusBtn">+</string>
 </resources>
