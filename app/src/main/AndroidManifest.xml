@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.raskaussovellus">
 
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RaskausSovellus">
-        <activity android:name=".CalendarInput"
-            android:parentActivityName=".CalendarActivity"></activity>
+        <activity android:name=".Alarm"></activity>
+        <activity
+            android:name=".CalendarInput"
+            android:parentActivityName=".CalendarActivity" />
         <activity
             android:name=".InfoActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".CalendarActivity"
             android:parentActivityName=".MainActivity" />

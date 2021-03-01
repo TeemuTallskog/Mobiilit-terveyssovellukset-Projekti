@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Alarm">
+
+    <EditText
+        android:id="@+id/Hour"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="Hour"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/Minute"
+        app:layout_constraintStart_toStartOf="@+id/Minute"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Minute"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="82dp"
+        android:ems="10"
+        android:hint="Minute"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/Time"
+        app:layout_constraintStart_toStartOf="@+id/Time"
+        app:layout_constraintTop_toTopOf="@+id/Hour" />
+
+    <Button
+        android:id="@+id/Alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="284dp"
+        android:text="Set Alarm"
+        app:layout_constraintStart_toStartOf="@+id/Minute"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="69dp"
+        android:layout_marginLeft="69dp"
+        android:text="Set Time"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Alarm"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
