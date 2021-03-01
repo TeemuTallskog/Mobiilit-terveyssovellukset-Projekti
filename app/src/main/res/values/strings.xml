@@ -6,4 +6,5 @@
     <string name="WeightKey">0.0</string>
     <string name="Kg">Kg</string>
     <string name="PlusBtn">+</string>
+    <string name="header">Sovelluksen nimi</string>
 </resources>
