@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void launchActivity(View view){
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, Alarm.class);
         startActivity(intent);
 
     }

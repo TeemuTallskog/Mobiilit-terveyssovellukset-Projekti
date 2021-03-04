@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".CalendarActivity">
 
     <CalendarView
@@ -16,59 +20,70 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:onClick="onBtnSubmit"
-        android:text="@string/Submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/removeBtn"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
-    <Button
         android:id="@+id/removeBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:onClick="onBtnRemove"
         android:text="@string/Remove"
-        app:layout_constraintEnd_toStartOf="@+id/submitBtn"
+        app:layout_constraintEnd_toStartOf="@+id/AddEntryBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <Button
         android:id="@+id/AddEntryBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:onClick="newEntry"
-        android:text="@string/PlusBtn"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+        android:text="@string/newEntry"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/removeBtn"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
-    <EditText
-        android:id="@+id/textInput"
+    <ImageView
+        android:id="@+id/drawMood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:autofillHints="@string/Test"
-        android:ems="10"
-        android:hint="@string/Test"
-        android:inputType="textPersonName"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitBtn" />
+        app:layout_constraintStart_toEndOf="@+id/drawWeight"
+        app:layout_constraintTop_toBottomOf="@+id/AddEntryBtn"
+        app:srcCompat="@drawable/empty_mood_input"
+        android:contentDescription="@string/Mood" />
 
     <TextView
-        android:id="@+id/customData"
+        android:id="@+id/drawWeight"
         android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/Kg"
+        app:layout_constraintEnd_toStartOf="@+id/drawMood"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/removeBtn"
+        android:gravity="center"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Test"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput" />
+        app:layout_constraintTop_toBottomOf="@+id/drawWeight">
+
+        <TextView
+            android:id="@+id/customData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/Test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

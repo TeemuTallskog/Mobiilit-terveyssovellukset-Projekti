@@ -2,9 +2,17 @@
     <string name="app_name">RaskausSovellus</string>
     <string name="Test">Test</string>
     <string name="Submit">Submit</string>
-    <string name="Remove">Remove</string>
+    <string name="Remove">Remove log</string>
     <string name="WeightKey">0.0</string>
     <string name="Kg">Kg</string>
     <string name="PlusBtn">+</string>
     <string name="header">Sovelluksen nimi</string>
+    <string name="Hour">Hour</string>
+    <string name="Minute">Minute</string>
+    <string name="Alarm">Set alarm</string>
+    <string name="Time">Set time</string>
+    <string name="newEntry">Edit log</string>
+    <string name="Mood">Mood emoji</string>
+    <string name="DrawWeight">%1$s Kg</string>
+    <string name="CustomInfo">Write a custom log</string>
 </resources>

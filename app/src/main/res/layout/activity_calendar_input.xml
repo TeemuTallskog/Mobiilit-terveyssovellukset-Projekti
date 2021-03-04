@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/calendarInputLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".CalendarInput">
 
     <TextView
@@ -18,7 +23,7 @@
 
     <EditText
         android:id="@+id/weightInput"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:autofillHints=""
@@ -34,11 +39,96 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="35dp"
         android:text="@string/Kg"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/weightInput"
         app:layout_constraintTop_toBottomOf="@+id/dateView" />
+
+    <RadioGroup
+        android:id="@+id/emojiRadioGrp"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_marginTop="140dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/emojiBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/emoji_1_48"
+            android:checked="false" />
+
+        <RadioButton
+            android:id="@+id/emojiBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/emoji_2_48"
+            android:checked="false" />
+
+        <RadioButton
+            android:id="@+id/emojiBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/emoji_3_48"
+            android:checked="false" />
+
+        <RadioButton
+            android:id="@+id/emojiBtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/emoji_4_48"
+            android:checked="false" />
+
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="300"
+        app:layout_constraintBottom_toTopOf="@+id/submitInputsBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emojiRadioGrp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputCustomText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:autofillHints="@string/CustomInfo"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="@string/CustomInfo"
+            android:inputType="textMultiLine"
+            android:maxLength="300"
+            app:layout_constraintBottom_toTopOf="@+id/submitInputsBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emojiRadioGrp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submitInputsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="submitData"
+        android:text="@string/Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

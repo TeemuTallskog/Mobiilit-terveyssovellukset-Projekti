@@ -14,6 +14,7 @@ public class CalendarDatabase extends SQLiteOpenHelper {
     private static final String CUSTOM_DATA = "userData";
     private static final String KEY_ID = "id";
     private static final String WEIGHT = "kg";
+    private static final String MOOD = "mood";
 
 
     public CalendarDatabase(Context context){
@@ -26,7 +27,7 @@ public class CalendarDatabase extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CALENDAR_TABLE = "CREATE TABLE " + TABLE_NAME + " (" + KEY_ID + " INTEGER PRIMARY KEY, " + CUSTOM_DATA + " TEXT, " + WEIGHT + " REAL" + ")";
+        String CREATE_CALENDAR_TABLE = "CREATE TABLE " + TABLE_NAME + " (" + KEY_ID + " INTEGER PRIMARY KEY, " + CUSTOM_DATA + " TEXT, " + WEIGHT + " DOUBLE, " + MOOD + " INTEGER" + ")";
         db.execSQL(CREATE_CALENDAR_TABLE);
     }
 
@@ -49,6 +50,7 @@ public class CalendarDatabase extends SQLiteOpenHelper {
         values.put(CUSTOM_DATA, data.getCustomData());
         values.put(KEY_ID, data.getDateID());
         values.put(WEIGHT, data.getWeight());
+        values.put(MOOD, data.getMood());
         db.insertWithOnConflict(TABLE_NAME, null, values,SQLiteDatabase.CONFLICT_REPLACE);
         db.close();
     }
@@ -71,13 +73,13 @@ public class CalendarDatabase extends SQLiteOpenHelper {
     CalendarData getCalendarData(String id){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, CUSTOM_DATA, WEIGHT}, KEY_ID + "=?", new String[]{id},null, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, CUSTOM_DATA, WEIGHT, MOOD}, KEY_ID + "=?", new String[]{id},null, null, null, null);
         if(cursor != null){
             cursor.moveToFirst();
         }
 
         if(cursor.getCount() != 0){
-            return new CalendarData(Integer.parseInt(cursor.getString(0)), cursor.getString(1));
+            return new CalendarData(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Double.parseDouble(cursor.getString(2)), Integer.parseInt(cursor.getString(3)));
         }else {
             return new CalendarData();
         }
