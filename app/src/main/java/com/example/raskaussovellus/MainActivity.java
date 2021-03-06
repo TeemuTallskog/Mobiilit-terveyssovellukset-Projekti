@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // display current date, after added 280 days, and counter
     public void viewDate() {
-        showDate = (TextView) findViewById(R.id.tvDate);
-        counter = (TextView) findViewById(R.id.tv_days);
+        showDate = (TextView) findViewById(R.id.date);
+        counter = (TextView) findViewById(R.id.days);
 
         final Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
