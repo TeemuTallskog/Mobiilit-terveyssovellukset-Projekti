@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -18,16 +17,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-
 import com.google.android.material.navigation.NavigationView;
-
-<<<<<<< HEAD
 import java.util.Calendar;
-=======
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
->>>>>>> bbdeb2739959df58df3165beea5bb3ed3a860c73
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
