@@ -6,25 +6,25 @@ public class CalendarData {
      */
 
     private String customData;
-    //dateID will be the day of the month + month + year. ex. 13112020
-    private int dateID;
+    //dateID will be year + month + day of the month  ex. 20201113
+    private String dateID;
     private double weight;
     private int mood;
 
-    public CalendarData(int dateID, String customData) {
+    public CalendarData(String dateID, String customData) {
         this.customData = customData;
         this.dateID = dateID;
         this.weight = 0;
     }
 
-    public CalendarData(int dateID, String customData, double weight, int mood){
+    public CalendarData(String dateID, String customData, double weight, int mood){
         this.dateID = dateID;
         this.customData = customData;
         this.weight = weight;
         this.mood = mood;
     }
 
-    public CalendarData(int dateID, double weight){
+    public CalendarData(String dateID, double weight){
         this.weight = weight;
         this.dateID = dateID;
         this.customData = "nothing here";
@@ -36,7 +36,7 @@ public class CalendarData {
         this.mood = 0;
     }
 
-    public CalendarData(int dateID){
+    public CalendarData(String dateID){
         this.dateID = dateID;
     }
 
@@ -44,7 +44,7 @@ public class CalendarData {
         this.customData = customData;
     }
 
-    public void setDateID(int dateID){
+    public void setDateID(String dateID){
         this.dateID = dateID;
     }
 
@@ -66,7 +66,7 @@ public class CalendarData {
         return customData;
     }
 
-    public int getDateID() {
+    public String getDateID() {
         return dateID;
     }
 

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.text.DateFormatSymbols;
 
+import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
@@ -27,7 +28,6 @@ public class CalendarActivity extends AppCompatActivity {
     private String dateID;
     private String selectedDate;
     private TextView customDataBox;
-    //private EditText textInput;
     private CalendarDatabase db;
     private TextView weightView;
     private ImageView imageView;
@@ -44,18 +44,16 @@ public class CalendarActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         Calendar calendar = Calendar.getInstance();
-        String currentDay = Integer.toString(calendar.get(Calendar.DAY_OF_MONTH));
-        String currentMonth = Integer.toString(calendar.get(Calendar.MONTH));
-        String currentYear = Integer.toString(calendar.get(Calendar.YEAR));
-        selectedDate = new DateFormatSymbols().getMonths()[Integer.parseInt(currentMonth)] + " " + currentDay + ", " + currentYear;
-        dateID = currentDay + currentMonth + currentYear;
+        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        int currentMonth = calendar.get(Calendar.MONTH);
+        int currentYear = calendar.get(Calendar.YEAR);
+        selectedDate = new DateFormatSymbols().getMonths()[currentMonth] + " " + currentDay + ", " + currentYear;
+        dateID = Integer.toString(currentYear) + underTen(currentMonth) + underTen(currentDay);
 
         db = new CalendarDatabase(this);
 
-        //textInput = findViewById(R.id.textInput);
-
         //Updates the displayed data for current automatically from database
-        CalendarData currentDayData = db.getCalendarData(currentDay + currentMonth + currentYear);
+        CalendarData currentDayData = db.getCalendarData(dateID);
         if(currentDayData.getCustomData().equals("Custom log")){
             customDataBox.setText("");
         }else{
@@ -71,7 +69,7 @@ public class CalendarActivity extends AppCompatActivity {
              */
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                dateID = String.valueOf(dayOfMonth) + String.valueOf(month) + String.valueOf(year);
+                dateID = year + underTen(month) + underTen(dayOfMonth);
                 selectedDate = new DateFormatSymbols().getMonths()[month] + " " + String.valueOf(dayOfMonth) + ", " + String.valueOf(year);
                 CalendarData calendarData = db.getCalendarData(dateID);
                 if(calendarData.getCustomData().equals("Custom log")){
@@ -104,18 +102,6 @@ public class CalendarActivity extends AppCompatActivity {
         }
     }
 
-    /*public void onBtnSubmit(View v){
-        //submits the users text to the database and updates the text box
-        String text = textInput.getText().toString();
-        CalendarData calendarData = new CalendarData(Integer.parseInt(dateID), text);
-        db.addData(calendarData);
-        customDataBox.setText(text);
-
-        //hides the keypad once submit button is pressed.
-        textInput.setText("");
-        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        mgr.hideSoftInputFromWindow(textInput.getWindowToken(), 0);
-    }*/
 
     public void onBtnRemove(View v){
         db.deleteData(dateID);
@@ -129,5 +115,15 @@ public class CalendarActivity extends AppCompatActivity {
         intent.putExtra(DATE, selectedDate);
         intent.putExtra(DATE_ID, dateID);
         startActivity(intent);
+    }
+
+    public String underTen(int i){
+        String stringNum;
+        if (i < 10){
+            stringNum = "0" + i;
+            return stringNum;
+        }else{
+            return Integer.toString(i);
+        }
     }
 }

@@ -13,6 +13,8 @@ import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private NavigationView drawer;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void launchActivity(View view){
-        Intent intent = new Intent(this, Alarm.class);
+        Intent intent = new Intent(this, CalendarInput.class);
         startActivity(intent);
 
     }
@@ -73,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_settings) {
             Log.d("TAG", "settings clicked");
             intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.nav_data){
+            intent = new Intent(this, DataAnalysis.class);
             startActivity(intent);
             return true;
         }

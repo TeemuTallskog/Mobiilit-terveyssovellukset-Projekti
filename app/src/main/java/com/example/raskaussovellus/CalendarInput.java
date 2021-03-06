@@ -114,12 +114,13 @@ public class CalendarInput extends AppCompatActivity {
             mood = 0;
         }
 
-        db.addData(new CalendarData(Integer.parseInt(dateID), customData, weight, mood));
+        db.addData(new CalendarData(dateID, customData, weight, mood));
         startActivity(intent);
     }
 
     /**
      *  checks if a string contains a valid number
+     *  source: https://www.baeldung.com/java-check-string-number
      * @param str parameter is a string that might contain a number
      * @return returns true is the string contains a number and false if it doesn't
      */

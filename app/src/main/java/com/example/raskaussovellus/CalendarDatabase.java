@@ -1,10 +1,20 @@
 package com.example.raskaussovellus;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.ContactsContract;
+import android.util.Log;
+
+import com.github.mikephil.charting.data.Entry;
+import com.jjoe64.graphview.series.DataPoint;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class CalendarDatabase extends SQLiteOpenHelper {
 
@@ -27,7 +37,7 @@ public class CalendarDatabase extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CALENDAR_TABLE = "CREATE TABLE " + TABLE_NAME + " (" + KEY_ID + " INTEGER PRIMARY KEY, " + CUSTOM_DATA + " TEXT, " + WEIGHT + " DOUBLE, " + MOOD + " INTEGER" + ")";
+        String CREATE_CALENDAR_TABLE = "CREATE TABLE " + TABLE_NAME + " (" + KEY_ID + " TEXT PRIMARY KEY, " + CUSTOM_DATA + " TEXT, " + WEIGHT + " DOUBLE, " + MOOD + " INTEGER" + ")";
         db.execSQL(CREATE_CALENDAR_TABLE);
     }
 
@@ -79,9 +89,52 @@ public class CalendarDatabase extends SQLiteOpenHelper {
         }
 
         if(cursor.getCount() != 0){
-            return new CalendarData(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Double.parseDouble(cursor.getString(2)), Integer.parseInt(cursor.getString(3)));
+            return new CalendarData(cursor.getString(0), cursor.getString(1), Double.parseDouble(cursor.getString(2)), Integer.parseInt(cursor.getString(3)));
         }else {
             return new CalendarData();
         }
+    }
+
+    /**
+     * Method to get weight data from the data base.
+     * Weight inputs lower than 1.0 kg will be ignored.
+     * @return returns datapoints with the days months and years in milliseconds for the x value and weight as the Y value from the database.
+     * @throws Exception
+     */
+   public DataPoint [] getWeight() throws Exception {
+       SQLiteDatabase db = this.getReadableDatabase();
+
+       @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT " + KEY_ID + ", " + WEIGHT + " FROM " + TABLE_NAME + " ORDER BY " + KEY_ID + " ASC", null);
+       if(cursor != null) {
+           cursor.moveToFirst();
+       }
+       int cursorCount = cursor.getCount();
+       for(int i = 0; i<cursorCount; i++){
+            if(cursor.getDouble(1) < 1.0){
+                cursorCount = cursorCount-1;
+            }
+            cursor.moveToNext();
+       }
+       cursor.moveToFirst();
+       DataPoint[] dataPoints = new DataPoint[cursorCount];
+       for (int i = 0; i < cursorCount; i++) {
+           if(cursor.getDouble(1) < 1.0){
+               cursor.moveToNext();
+           }
+           dataPoints[i] = new DataPoint(formatDate(cursor.getString(0)), cursor.getDouble(1));
+           cursor.moveToNext();
+       }
+       return dataPoints;
+   }
+
+
+    /**
+     * Turns dateID stored in the database into milliseconds.
+     * @param dateID parameter is a date in yyyyMMdd format
+     * @return returns the date in milliseconds.
+     */
+    private long formatDate(String dateID)throws Exception{
+        @SuppressLint("SimpleDateFormat") Date date =new SimpleDateFormat("yyyyMMdd").parse(dateID);
+        return date.getTime();
     }
 }

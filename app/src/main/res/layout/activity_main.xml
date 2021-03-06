@@ -27,17 +27,17 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_menu"
+                app:srcCompat="@drawable/ic_menu"
                 app:tint="@android:color/background_light"/>
 
             <TextView
                 android:id="@+id/myText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/header"
                 android:gravity="center"
-                android:textSize="25dp"
-                android:textColor="#21ffda" />
+                android:text="@string/header"
+                android:textColor="#21ffda"
+                android:textSize="25sp" />
 
         </LinearLayout>
 

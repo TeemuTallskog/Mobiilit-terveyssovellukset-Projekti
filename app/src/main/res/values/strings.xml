@@ -15,4 +15,10 @@
     <string name="Mood">Mood emoji</string>
     <string name="DrawWeight">%1$s Kg</string>
     <string name="CustomInfo">Write a custom log</string>
+    <string name="weight">Weight</string>
+    <string name="mood">Select todays mood</string>
+    <string name="Calendar">Calendar</string>
+    <string name="Information">Information</string>
+    <string name="Setings">Settings</string>
+    <string name="Data">Graphs</string>
 </resources>
