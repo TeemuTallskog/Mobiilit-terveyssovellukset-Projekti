@@ -11,13 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RaskausSovellus">
-        <activity android:name=".Alarm"></activity>
+
+        <activity
+            android:name=".Alarm"
+            android:parentActivityName=".SettingsActivity">
+
+        </activity>
         <activity
             android:name=".CalendarInput"
             android:parentActivityName=".CalendarActivity" />
         <activity
             android:name=".InfoActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity">
+
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity" />
