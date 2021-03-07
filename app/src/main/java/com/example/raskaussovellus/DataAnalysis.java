@@ -182,12 +182,12 @@ public class DataAnalysis extends AppCompatActivity {
      */
     private void viewLimit(Boolean isWeightData){
         double minXDataPoint;
-        if(isWeightData){
-            minXDataPoint = dataPoints[0].getX();
-        }else{
-            minXDataPoint = moodDataPoints[0].getX();
-        }
         if(dataPoints.length != 0 || moodDataPoints.length != 0) {
+            if(isWeightData){
+                minXDataPoint = dataPoints[0].getX();
+            }else{
+                minXDataPoint = moodDataPoints[0].getX();
+            }
             graphView.removeAllSeries();
             Viewport viewport = graphView.getViewport();
             int selectedId = radioGroup.getCheckedRadioButtonId();
@@ -212,21 +212,31 @@ public class DataAnalysis extends AppCompatActivity {
                 graphView.getGridLabelRenderer().setNumHorizontalLabels(3);
             }
             viewport.setXAxisBoundsManual(true);
-            if(moodRadioGroup.getCheckedRadioButtonId() == R.id.WeightRadioBtn){
-                viewport.setYAxisBoundsManual(false);
-                graphView.addSeries(lineGraphSeries);
-                graphView.addSeries(pointsGraphSeries);
-                graphView.getGridLabelRenderer().setVerticalLabelsVisible(true);
-            }
-            if(moodRadioGroup.getCheckedRadioButtonId() == R.id.MoodRadioBtn){
-                viewport.setMinY(0);
-                viewport.setMaxY(6);
-                viewport.setYAxisBoundsManual(true);
-                graphView.getGridLabelRenderer().setVerticalLabelsVisible(false);
-                graphView.addSeries(barGraphSeries);
-                TextView textView = (TextView) findViewById(R.id.DataString);
-                textView.setText("");
-            }
+            addSeriesLimist();
+        }
+    }
+
+
+    /**
+     * adds the Graph series's to the view graph and sets some limiters.
+     * this methos is called inside viewLimit
+     */
+    private void addSeriesLimist(){
+        Viewport viewport = graphView.getViewport();
+        if(moodRadioGroup.getCheckedRadioButtonId() == R.id.WeightRadioBtn){
+            viewport.setYAxisBoundsManual(false);
+            graphView.addSeries(lineGraphSeries);
+            graphView.addSeries(pointsGraphSeries);
+            graphView.getGridLabelRenderer().setVerticalLabelsVisible(true);
+        }
+        if(moodRadioGroup.getCheckedRadioButtonId() == R.id.MoodRadioBtn){
+            viewport.setMinY(0);
+            viewport.setMaxY(6);
+            viewport.setYAxisBoundsManual(true);
+            graphView.getGridLabelRenderer().setVerticalLabelsVisible(false);
+            graphView.addSeries(barGraphSeries);
+            TextView textView = (TextView) findViewById(R.id.DataString);
+            textView.setText("");
         }
     }
 

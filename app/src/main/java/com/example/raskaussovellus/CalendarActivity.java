@@ -3,20 +3,15 @@ package com.example.raskaussovellus;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.text.DateFormatSymbols;
 
-import java.time.Year;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -39,7 +34,7 @@ public class CalendarActivity extends AppCompatActivity {
         CalendarView calendarView = findViewById(R.id.calendarView);
         customDataBox = findViewById(R.id.customData);
         weightView = findViewById(R.id.drawWeight);
-        imageView = findViewById(R.id.drawMood);
+        imageView = findViewById(R.id.emojiLog);
         //adds a back button to the toolbar that leads to the MainActivity
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
@@ -112,12 +107,13 @@ public class CalendarActivity extends AppCompatActivity {
 
     public void newEntry(View view){
         Intent intent = new Intent(this, CalendarInput.class);
+        intent.putExtra("Origin", "Calendar");
         intent.putExtra(DATE, selectedDate);
         intent.putExtra(DATE_ID, dateID);
         startActivity(intent);
     }
 
-    public String underTen(int i){
+    private String underTen(int i){
         String stringNum;
         if (i < 10){
             stringNum = "0" + i;

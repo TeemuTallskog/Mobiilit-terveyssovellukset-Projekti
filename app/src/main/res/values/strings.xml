@@ -28,4 +28,6 @@
     <string name="WipeData">Remove all calendar data</string>
     <string name="MoodString">Mood</string>
     <string name="Weight">Weight</string>
+    <string name="placeholderDate">January 1st</string>
+    <string name="History">Log history</string>
 </resources>
