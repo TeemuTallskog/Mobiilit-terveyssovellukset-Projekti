@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     static final int DATE_DIALOG_ID = 999;
     public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String DATE = "date";
+    public static final String DATE_ID = "dateID";
 
 
 
@@ -95,9 +98,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void launchActivity(View view){
-        Intent intent = new Intent(this, Alarm.class);
+        Calendar calendar = Calendar.getInstance();
+        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        int currentMonth = calendar.get(Calendar.MONTH);
+        int currentYear = calendar.get(Calendar.YEAR);
+        String date = new DateFormatSymbols().getMonths()[currentMonth] + " " + currentDay + ", " + currentYear;
+        String dateID = Integer.toString(currentYear) + underTen(currentMonth + 1) + underTen(currentDay);
+        Intent intent = new Intent(this, CalendarInput.class);
+        intent.putExtra("Origin", "Main");
+        intent.putExtra(DATE, date);
+        intent.putExtra(DATE_ID, dateID);
         startActivity(intent);
 
+    }
+
+    private String underTen(int i){
+        String stringNum;
+        if (i < 10){
+            stringNum = "0" + i;
+            return stringNum;
+        }else{
+            return Integer.toString(i);
+        }
     }
 
     /**
@@ -128,6 +150,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_settings) {
             Log.d("TAG", "settings clicked");
             intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if(id == R.id.inputHistory){
+            intent = new Intent(this, LogHistoryActivity.class);
             startActivity(intent);
             return true;
         }
