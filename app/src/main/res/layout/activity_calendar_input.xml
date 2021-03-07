@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     android:fillViewport="true">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/calendarInputLayout"
@@ -17,7 +18,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/Test"
+<<<<<<< HEAD
+        android:fontFamily="serif"
+        android:textColor="#040404"
+        android:textSize="20dp"
+=======
         android:textSize="28sp"
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,9 +41,15 @@
 
     <EditText
         android:id="@+id/weightInput"
+<<<<<<< HEAD
+        android:layout_width="86dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="64dp"
+=======
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
         android:autofillHints=""
         android:ems="10"
         android:gravity="center"
@@ -48,13 +61,25 @@
 
     <TextView
         android:id="@+id/textView"
+<<<<<<< HEAD
+        android:layout_width="44dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+=======
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
         android:text="@string/Kg"
-        android:textSize="18sp"
+        android:textColor="#040404"
+        android:textSize="26sp"
+        android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/weightInput"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -70,9 +95,15 @@
 
     <RadioGroup
         android:id="@+id/emojiRadioGrp"
+<<<<<<< HEAD
+        android:layout_width="199dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="220dp"
+=======
         android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:layout_marginTop="8dp"
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +114,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:button="@drawable/emoji_1_48"
-            android:checked="false" />
+            android:checked="false"
+            android:textColor="#232121"
+            android:textColorHint="#3A3636" />
 
         <RadioButton
             android:id="@+id/emojiBtn2"
@@ -142,12 +175,17 @@
 
     <Button
         android:id="@+id/submitInputsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_width="125dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="32dp"
+        android:fontFamily="serif"
+        android:textSize="20dp"
         android:onClick="submitData"
+        android:background="@drawable/rounded"
         android:text="@string/Submit"
+        android:textColor="#040404"
+        android:textStyle="bold"
+        app:backgroundTint="#0FD1BF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

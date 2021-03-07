@@ -4,30 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     tools:context=".SettingsActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="241dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        android:onClick="launchActivity"
+        android:text="Alarm"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:backgroundTint="#0FD1BF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="244dp"
-        android:onClick="launchActivity"
-        android:text="Alarm"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+<<<<<<< HEAD
+    <TextView
+        android:layout_width="411dp"
+        android:layout_height="75dp"
+        android:text="Settings"
+        android:gravity="center"
+        android:fontFamily="serif"
+        android:textColor="#040404"
+        android:textStyle="normal"
+        android:textSize="50dp"/>
+=======
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -38,4 +46,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
 </androidx.constraintlayout.widget.ConstraintLayout>

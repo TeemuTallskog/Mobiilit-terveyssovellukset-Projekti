@@ -8,6 +8,7 @@ import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import java.util.Calendar;
 
@@ -15,8 +16,8 @@ import java.util.Calendar;
 public class Alarm extends AppCompatActivity {
 
     // present variable
-    EditText timeHour;
-    EditText timeMinute;
+    TextView timeHour;
+    TextView timeMinute;
     Button setAlarm;
     Button setTime;
     TimePickerDialog timePickerDialog;
