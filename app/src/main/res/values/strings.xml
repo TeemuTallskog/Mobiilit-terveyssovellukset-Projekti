@@ -19,4 +19,19 @@
     <string name="Mood">Mood emoji</string>
     <string name="DrawWeight">%1$s Kg</string>
     <string name="CustomInfo">Write a custom log</string>
+    <string name="weight">Weight</string>
+    <string name="mood">Select todays mood</string>
+    <string name="Calendar">Calendar</string>
+    <string name="Information">Information</string>
+    <string name="Setings">Settings</string>
+    <string name="Data">Graphs</string>
+    <string name="NinetyDays">90 days</string>
+    <string name="ThirtyDays">30 days</string>
+    <string name="HalfYear">180 days</string>
+    <string name="Everything">All</string>
+    <string name="WipeData">Remove all calendar data</string>
+    <string name="MoodString">Mood</string>
+    <string name="Weight">Weight</string>
+    <string name="placeholderDate">January 1st</string>
+    <string name="History">Log history</string>
 </resources>

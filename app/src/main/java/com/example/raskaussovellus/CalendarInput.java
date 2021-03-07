@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import java.util.Objects;
 public class CalendarInput extends AppCompatActivity {
     private String dateID;
     private CalendarData calendarData;
+    private String selectedDate;
 
 
     @Override
@@ -21,11 +23,18 @@ public class CalendarInput extends AppCompatActivity {
         setContentView(R.layout.activity_calendar_input);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
-        dateID = intent.getStringExtra(CalendarActivity.DATE_ID);
-        String selectedDate = intent.getStringExtra(CalendarActivity.DATE);
-
+        String origin = intent.getStringExtra("Origin");
+        Log.i("tag", origin);
+        if(origin.equals("Main")){
+            dateID = intent.getStringExtra(MainActivity.DATE_ID);
+            selectedDate = intent.getStringExtra(MainActivity.DATE);
+        }else if(origin.equals("Calendar")) {
+            dateID = intent.getStringExtra(CalendarActivity.DATE_ID);
+            selectedDate = intent.getStringExtra(CalendarActivity.DATE);
+        }
         TextView displayDate = findViewById(R.id.dateView);
         displayDate.setText(selectedDate);
+        Log.i("Tag",dateID);
         calendarData = new CalendarDatabase(this).getCalendarData(dateID);
         setDefaults(calendarData);
     }
@@ -40,19 +49,19 @@ public class CalendarInput extends AppCompatActivity {
         RadioGroup radioGroup = findViewById(R.id.emojiRadioGrp);
         if(mood != 0){
             switch (mood){
-                case 1:
+                case 4:
                     radioGroup.check(R.id.emojiBtn1);
                     break;
 
-                case 2:
+                case 3:
                     radioGroup.check(R.id.emojiBtn2);
                     break;
 
-                case 3:
+                case 2:
                     radioGroup.check(R.id.emojiBtn3);
                     break;
 
-                case 4:
+                case 1:
                     radioGroup.check(R.id.emojiBtn4);
                     break;
             }
@@ -103,23 +112,24 @@ public class CalendarInput extends AppCompatActivity {
         }
 
         if(selectedRadioBtn == R.id.emojiBtn1){
-            mood = 1;
-        }else if(selectedRadioBtn == R.id.emojiBtn2){
-            mood = 2;
-        }else if (selectedRadioBtn == R.id.emojiBtn3){
-            mood = 3;
-        }else if(selectedRadioBtn == R.id.emojiBtn4){
             mood = 4;
+        }else if(selectedRadioBtn == R.id.emojiBtn2){
+            mood = 3;
+        }else if (selectedRadioBtn == R.id.emojiBtn3){
+            mood = 2;
+        }else if(selectedRadioBtn == R.id.emojiBtn4){
+            mood = 1;
         }else{
             mood = 0;
         }
 
-        db.addData(new CalendarData(Integer.parseInt(dateID), customData, weight, mood));
+        db.addData(new CalendarData(dateID, customData, weight, mood));
         startActivity(intent);
     }
 
     /**
      *  checks if a string contains a valid number
+     *  source: https://www.baeldung.com/java-check-string-number
      * @param str parameter is a string that might contain a number
      * @return returns true is the string contains a number and false if it doesn't
      */

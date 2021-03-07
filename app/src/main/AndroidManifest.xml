@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.raskaussovellus">
 
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -11,20 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RaskausSovellus">
-
+        <activity android:name=".LogInspect"
+            android:parentActivityName=".LogHistoryActivity"/>
+        <activity
+            android:name=".LogHistoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DataAnalysis"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Alarm"
-            android:parentActivityName=".SettingsActivity">
-
-        </activity>
+            android:parentActivityName=".SettingsActivity" />
         <activity
             android:name=".CalendarInput"
             android:parentActivityName=".CalendarActivity" />
         <activity
             android:name=".InfoActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity" />
