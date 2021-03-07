@@ -139,6 +139,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             return true;
         }
+        if(id == R.id.nav_data){
+            intent = new Intent(this, DataAnalysis.class);
+            startActivity(intent);
+            return true;
+        }
 
         if (id == R.id.nav_info) {
             Log.d("TAG", "info clicked");
