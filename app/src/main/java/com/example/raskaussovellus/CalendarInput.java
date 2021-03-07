@@ -40,19 +40,19 @@ public class CalendarInput extends AppCompatActivity {
         RadioGroup radioGroup = findViewById(R.id.emojiRadioGrp);
         if(mood != 0){
             switch (mood){
-                case 1:
+                case 4:
                     radioGroup.check(R.id.emojiBtn1);
                     break;
 
-                case 2:
+                case 3:
                     radioGroup.check(R.id.emojiBtn2);
                     break;
 
-                case 3:
+                case 2:
                     radioGroup.check(R.id.emojiBtn3);
                     break;
 
-                case 4:
+                case 1:
                     radioGroup.check(R.id.emojiBtn4);
                     break;
             }
@@ -103,13 +103,13 @@ public class CalendarInput extends AppCompatActivity {
         }
 
         if(selectedRadioBtn == R.id.emojiBtn1){
-            mood = 1;
-        }else if(selectedRadioBtn == R.id.emojiBtn2){
-            mood = 2;
-        }else if (selectedRadioBtn == R.id.emojiBtn3){
-            mood = 3;
-        }else if(selectedRadioBtn == R.id.emojiBtn4){
             mood = 4;
+        }else if(selectedRadioBtn == R.id.emojiBtn2){
+            mood = 3;
+        }else if (selectedRadioBtn == R.id.emojiBtn3){
+            mood = 2;
+        }else if(selectedRadioBtn == R.id.emojiBtn4){
+            mood = 1;
         }else{
             mood = 0;
         }

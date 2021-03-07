@@ -26,5 +26,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    public void wipeData(View view){
+            CalendarDatabase db = new CalendarDatabase(this);
+            db.wipeData();
+    }
+
     }
 

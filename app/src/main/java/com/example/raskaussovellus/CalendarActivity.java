@@ -48,7 +48,7 @@ public class CalendarActivity extends AppCompatActivity {
         int currentMonth = calendar.get(Calendar.MONTH);
         int currentYear = calendar.get(Calendar.YEAR);
         selectedDate = new DateFormatSymbols().getMonths()[currentMonth] + " " + currentDay + ", " + currentYear;
-        dateID = Integer.toString(currentYear) + underTen(currentMonth) + underTen(currentDay);
+        dateID = Integer.toString(currentYear) + underTen(currentMonth + 1) + underTen(currentDay);
 
         db = new CalendarDatabase(this);
 
@@ -69,7 +69,7 @@ public class CalendarActivity extends AppCompatActivity {
              */
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                dateID = year + underTen(month) + underTen(dayOfMonth);
+                dateID = year + underTen(month + 1) + underTen(dayOfMonth);
                 selectedDate = new DateFormatSymbols().getMonths()[month] + " " + String.valueOf(dayOfMonth) + ", " + String.valueOf(year);
                 CalendarData calendarData = db.getCalendarData(dateID);
                 if(calendarData.getCustomData().equals("Custom log")){
@@ -91,13 +91,13 @@ public class CalendarActivity extends AppCompatActivity {
     public void setMoodImage(int mood){
         if(mood == 0){
             imageView.setImageResource(R.drawable.empty_mood_input);
-        }else if(mood == 1){
-            imageView.setImageResource(R.drawable.emoji_1_48);
-        }else if(mood == 2){
-            imageView.setImageResource(R.drawable.emoji_2_48);
-        }else if(mood == 3){
-            imageView.setImageResource(R.drawable.emoji_3_48);
         }else if(mood == 4){
+            imageView.setImageResource(R.drawable.emoji_1_48);
+        }else if(mood == 3){
+            imageView.setImageResource(R.drawable.emoji_2_48);
+        }else if(mood == 2){
+            imageView.setImageResource(R.drawable.emoji_3_48);
+        }else if(mood == 1){
             imageView.setImageResource(R.drawable.emoji_4_48);
         }
     }

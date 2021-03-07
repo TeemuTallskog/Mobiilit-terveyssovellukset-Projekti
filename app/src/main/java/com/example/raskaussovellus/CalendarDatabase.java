@@ -108,20 +108,44 @@ public class CalendarDatabase extends SQLiteOpenHelper {
        if(cursor != null) {
            cursor.moveToFirst();
        }
-       int cursorCount = cursor.getCount();
-       for(int i = 0; i<cursorCount; i++){
-            if(cursor.getDouble(1) < 1.0){
-                cursorCount = cursorCount-1;
-            }
-            cursor.moveToNext();
+       int validWeightCount = 0;
+       for(int i = 0; i<cursor.getCount(); i++){
+           if(cursor.getDouble(1)> 1.0){
+                 validWeightCount= validWeightCount + 1;
+           }
+           cursor.moveToNext();
        }
+
        cursor.moveToFirst();
-       DataPoint[] dataPoints = new DataPoint[cursorCount];
-       for (int i = 0; i < cursorCount; i++) {
+       int dataIndex = 0;
+       DataPoint[] dataPoints = new DataPoint[validWeightCount];
+       for (int i = 0; i < cursor.getCount(); i++) {
            if(cursor.getDouble(1) < 1.0){
                cursor.moveToNext();
+           }else {
+               dataPoints[dataIndex] = new DataPoint(formatDate(cursor.getString(0)), cursor.getDouble(1));
+               dataIndex = dataIndex + 1;
+               cursor.moveToNext();
            }
-           dataPoints[i] = new DataPoint(formatDate(cursor.getString(0)), cursor.getDouble(1));
+       }
+       return dataPoints;
+   }
+
+    /**
+     * retrieves mood datapoints from the database
+     * @return returns datapoints for the GraphView
+     * @throws Exception
+     */
+   public DataPoint [] getMood() throws Exception{
+       SQLiteDatabase db = this.getReadableDatabase();
+       @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT " + KEY_ID + ", " + MOOD + " FROM " + TABLE_NAME + " ORDER BY " + KEY_ID + " ASC", null);
+       if(cursor != null) {
+           cursor.moveToFirst();
+       }
+
+       DataPoint[] dataPoints = new DataPoint[cursor.getCount()];
+       for (int i = 0; i < cursor.getCount(); i++) {
+           dataPoints[i] = new DataPoint(formatDate(cursor.getString(0)), cursor.getInt(1));
            cursor.moveToNext();
        }
        return dataPoints;
@@ -136,5 +160,14 @@ public class CalendarDatabase extends SQLiteOpenHelper {
     private long formatDate(String dateID)throws Exception{
         @SuppressLint("SimpleDateFormat") Date date =new SimpleDateFormat("yyyyMMdd").parse(dateID);
         return date.getTime();
+    }
+
+    /**
+     * Call this to remove all records from the database table
+     */
+    public void wipeData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME);
+        db.close();
     }
 }

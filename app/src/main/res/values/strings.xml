@@ -21,4 +21,11 @@
     <string name="Information">Information</string>
     <string name="Setings">Settings</string>
     <string name="Data">Graphs</string>
+    <string name="NinetyDays">90 days</string>
+    <string name="ThirtyDays">30 days</string>
+    <string name="HalfYear">180 days</string>
+    <string name="Everything">All</string>
+    <string name="WipeData">Remove all calendar data</string>
+    <string name="MoodString">Mood</string>
+    <string name="Weight">Weight</string>
 </resources>
