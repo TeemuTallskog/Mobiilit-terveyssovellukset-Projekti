@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     android:fillViewport="true">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -21,9 +22,14 @@
 
     <Button
         android:id="@+id/removeBtn"
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:onClick="onBtnRemove"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        app:backgroundTint="#0FD1BF"
+        android:textColor="#040404"
+        android:textStyle="bold"
         android:text="@string/Remove"
         app:layout_constraintEnd_toStartOf="@+id/AddEntryBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +37,13 @@
 
     <Button
         android:id="@+id/AddEntryBtn"
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        app:backgroundTint="#0FD1BF"
+        android:textColor="#040404"
+        android:textStyle="bold"
         android:onClick="newEntry"
         android:text="@string/newEntry"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +66,9 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="serif"
+        android:textColor="#040404"
+        android:textSize="15dp"
         android:text="@string/Kg"
         app:layout_constraintEnd_toStartOf="@+id/drawMood"
         app:layout_constraintStart_toStartOf="parent"

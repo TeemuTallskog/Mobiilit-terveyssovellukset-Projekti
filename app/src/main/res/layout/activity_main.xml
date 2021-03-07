@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
+    android:background="#eeeeee"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,110 +24,120 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:progress="60" />
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintBottom_toBottomOf="@+id/Progress_bar"
-            app:layout_constraintEnd_toEndOf="@+id/Progress_bar"
-            app:layout_constraintStart_toStartOf="@+id/Progress_bar"
-            app:layout_constraintTop_toTopOf="@+id/Progress_bar"
-            tools:text="60%" />
-
 
         <Button
             android:id="@+id/feelings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="92dp"
+            android:layout_marginBottom="52dp"
+            android:background="@drawable/rounded"
+            android:fontFamily="serif"
             android:text="Put your feelings"
+            android:textColor="#040404"
+            android:textStyle="bold"
+            app:backgroundTint="#0FD1BF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fun_fact" />
+            app:layout_constraintTop_toBottomOf="@+id/btnChangeDate" />
 
-        <TextView
-            android:id="@+id/fun_fact"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="445dp"
-            android:fontFamily="serif"
-            android:gravity="center"
-            android:textColor="#404040"
-            app:layout_constraintBottom_toTopOf="@+id/feelings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutToolBar" />
 
         <LinearLayout
             android:id="@+id/layoutToolBar"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="71dp"
+            android:layout_marginBottom="16dp"
             android:background="@color/black"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/fun_fact"
+
+            app:layout_constraintBottom_toTopOf="@+id/imageMenu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageMenu"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_menu"
-                app:tint="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/myText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/header"
-                android:textColor="#21ffda"
-                android:textSize="25dp" />
 
         </LinearLayout>
 
 
         <TextView
             android:id="@+id/days"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="189dp"
+            android:layout_height="147dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:textColor="#040404"
+            android:textSize="25dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnChangeDate"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date" />
-
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            app:layout_constraintVertical_bias="0.488" />
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
+            android:layout_width="411dp"
+            android:layout_height="73dp"
+            android:fontFamily="serif"
             android:gravity="center"
+            android:textColor="#040404"
+            android:textSize="20dp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/btnChangeDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.46" />
+            app:layout_constraintTop_toBottomOf="@+id/myText"
+            app:layout_constraintVertical_bias="0.189" />
+
 
         <Button
             android:id="@+id/btnChangeDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="260dp"
-            android:text="DatePicker"
+            android:layout_marginBottom="154dp"
+            android:background="@drawable/rounded"
+            android:fontFamily="serif"
+            android:text="Date picker"
+            android:textColor="#040404"
+            android:textStyle="bold"
+            app:backgroundTint="#0FD1BF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/myText"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="   Something to wait"
+            android:textColor="#040404"
+            android:textSize="30dp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layoutToolBar" />
+
+        <ImageView
+            android:id="@+id/imageMenu"
+            android:layout_width="54dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="676dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutToolBar"
+            app:tint="#040404" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
