@@ -18,7 +18,7 @@
         android:onClick="launchActivity"
         android:text="Alarm"
         android:textColor="#040404"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:backgroundTint="#0FD1BF"
         app:layout_constraintEnd_toEndOf="parent"
