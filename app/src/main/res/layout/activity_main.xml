@@ -29,14 +29,11 @@
             android:id="@+id/feelings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:layout_marginBottom="52dp"
             android:background="@drawable/rounded"
             android:fontFamily="serif"
-=======
             android:layout_marginBottom="92dp"
             android:onClick="launchActivity"
->>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
             android:text="Put your feelings"
             android:textColor="#040404"
             android:textStyle="bold"
