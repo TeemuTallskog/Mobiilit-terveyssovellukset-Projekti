@@ -29,9 +29,14 @@
             android:id="@+id/feelings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginBottom="52dp"
             android:background="@drawable/rounded"
             android:fontFamily="serif"
+=======
+            android:layout_marginBottom="92dp"
+            android:onClick="launchActivity"
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
             android:text="Put your feelings"
             android:textColor="#040404"
             android:textStyle="bold"
@@ -58,6 +63,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+<<<<<<< HEAD
+=======
+            <ImageView
+                android:id="@+id/imageMenu"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/ic_menu"
+                app:tint="@android:color/background_light"/>
+
+
+            <TextView
+                android:id="@+id/myText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/header"
+                android:textColor="#21ffda"
+                android:textSize="25sp" />
+
+
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
         </LinearLayout>
 
 

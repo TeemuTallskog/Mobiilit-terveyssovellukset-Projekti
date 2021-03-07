@@ -25,6 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<<<<<<< HEAD
     <TextView
         android:layout_width="411dp"
         android:layout_height="75dp"
@@ -34,4 +35,16 @@
         android:textColor="#040404"
         android:textStyle="normal"
         android:textSize="50dp"/>
+=======
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="wipeData"
+        android:text="@string/WipeData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+>>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
 </androidx.constraintlayout.widget.ConstraintLayout>
