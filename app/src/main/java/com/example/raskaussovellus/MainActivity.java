@@ -6,9 +6,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.format.DateUtils;
@@ -29,20 +31,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private NavigationView drawer;
 
+    private boolean timerIsRunning = false;
+    //
+    private long mEndTime;
+    private boolean mTimerRunning;
+    private long startTimeInMillis;
+    private long timeStartTest;
+    private long mEndTimeCount;
+
     private long dif;
     private long daysCount;
+    private long count;
+    private long weeks;
 
-    private TextView showDate, counter, txtTimerDay1;
-    private Button btnChangeDate;
+    private TextView showDate, daysLeft, weeksLeft;
+    private Button btnChangeDate, btnSave;
+
+    private TextView daysLeftG;
+    private String chosenDate, stringDate;
 
     private int day;
     private int month;
     private int year;
 
+
     static final int DATE_DIALOG_ID = 999;
+    public static final String SHARED_PREFS = "sharedPrefs";
+
+
 
     CountDownTimer countDownTimer;
-    long timeStart = DateUtils.DAY_IN_MILLIS * 281 +
+    long timeStart = DateUtils.DAY_IN_MILLIS * 281+
             DateUtils.HOUR_IN_MILLIS * 0 +
             DateUtils.MINUTE_IN_MILLIS * 0 +
             DateUtils.SECOND_IN_MILLIS * 0;
@@ -56,8 +75,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer = (NavigationView) findViewById(R.id.navigationView);
         drawer.setNavigationItemSelectedListener(this);
 
+        btnSave = (Button) findViewById(R.id.saveButton);
         viewDate();
+        daysLeftG = (TextView) findViewById(R.id.textView2);
         btnOnClickListener();
+        btnSave();
 
         /**
          * if id (imageMenu) clicked; drawerLayout will open.
@@ -116,14 +138,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // display current date, after added 280 days, and counter
     public void viewDate() {
         showDate = (TextView) findViewById(R.id.date);
-        counter = (TextView) findViewById(R.id.days);
+        daysLeft = (TextView) findViewById(R.id.days);
+        weeksLeft = (TextView) findViewById(R.id.weeks);
 
-        final Calendar c = Calendar.getInstance();
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
+        final Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
+    //save and start countdown button (for testing)
+    public void btnSave() {
+        btnSave = (Button) findViewById(R.id.saveButton);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*if(timerIsRunning == true){
+                    countDownTimer.cancel();
+                    timerIsRunning = false;
+                }
+                if(!timerIsRunning){
+                startTimer();
+                }*/
+            }
+        });
+    }
 
     public void btnOnClickListener() {
         btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
@@ -132,8 +171,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 showDialog(DATE_DIALOG_ID);
-                //date pick limiter
-                //datePickerListener.getDatePicker().setMaxDate(System.currentTimeMillis());
             }
         });
     }
@@ -164,12 +201,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             month = selectedMonth;
             day = selectedDay;
 
-            String chosenDate = day + "." + (month + 1) + "." + year;
-            showDate.setText("chosen date: " + chosenDate + "\n"
-                    + "estimated birth: " + dateAdding(280, chosenDate));
+            chosenDate = day + "." + (month + 1) + "." + year;
+            stringDate = ("chosen date: " + chosenDate + "\n"
+                    + "estimated birth: " +  dateAdding(280, chosenDate));
+            showDate.setText(stringDate);
 
-            calcDif();
+            if(timerIsRunning){
+                countDownTimer.cancel();
+                timerIsRunning = false;
+            }
             startTimer();
+            saveData();
+            calcDif();
         }
     };
 
@@ -195,39 +238,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // reduce count(280) from the daysCount variable and countdown
     private void startTimer() {
+        timerIsRunning = true;
+        //
+        mEndTime = System.currentTimeMillis() + timeStart;
+        //mEndTimeCount = System.currentTimeMillis() + count;
+
         countDownTimer = new CountDownTimer(timeStart, 1000) {
-            StringBuilder time = new StringBuilder();
+            StringBuilder timeDay = new StringBuilder();
+            StringBuilder timeWeek = new StringBuilder();
 
             @Override
             public void onTick(long millisUntilFinished) {
-                time.setLength(0);
-                // singular or plural day
-                if (millisUntilFinished > DateUtils.DAY_IN_MILLIS) {
-                    long count = millisUntilFinished / DateUtils.DAY_IN_MILLIS;
-                    count = count - daysCount;
-                    if (count > 1)
-                        time.append(count).append(" days left ");
-                    else
-                        time.append(count).append(" day left ");
+                //
+                //timeStartTest = millisUntilFinished;
 
+                timeDay.setLength(0);
+                timeWeek.setLength(0);
+                // singular or plural day & week
+
+                if (millisUntilFinished > DateUtils.DAY_IN_MILLIS) {
+                    count = millisUntilFinished / DateUtils.DAY_IN_MILLIS;
+                    count = count - daysCount;
+                    weeks = count / 7;
+                    if (count > 1){
+                        timeDay.append(count).append(" days left ");
+                    }
+                    else{
+                        timeDay.append(count).append(" day left ");
+                    }
+                    if(weeks > 1){
+                        timeWeek.append(weeks).append(" weeks left ");
+                    }
+                    else{
+                        timeWeek.append(weeks).append(" week left ");
+                    }
+
+                    //timer format (hours, mins, secs) for testing
                     millisUntilFinished %= DateUtils.DAY_IN_MILLIS;
                     Log.d("TAG", "test");
-
-                    //display how many days from picked to current date (for testing)
-                    //txtTimerDay1 = (TextView) findViewById(R.id.txtTimerDayss);
-                    //txtTimerDay1.setText("" + String.format("%02d", daysCount));
                 }
+
                 //hours, mins, secs (for testing)
-                time.append(DateUtils.formatElapsedTime(Math.round(millisUntilFinished / 1000d)));
-                //days
-                counter.setText(time.toString());
+                timeDay.append(DateUtils.formatElapsedTime(Math.round(millisUntilFinished / 1000d)));
+
+                //days, weeks to string
+                daysLeft.setText(timeDay.toString());
+                weeksLeft.setText(timeWeek.toString());
             }
             @Override
             public void onFinish() {
-                counter.setText(DateUtils.formatElapsedTime(0));
+                daysLeft.setText(DateUtils.formatElapsedTime(0));
+                daysLeft.setText("Awaiting birth");
                 Log.d("TAG", "finished");
+                mTimerRunning = false;
             }
         }.start();
+        //
+        mTimerRunning = true;
     }
 
     //reduce the picked date to current date from 280 days and assign it to the daysCount variable
@@ -246,28 +313,75 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    //shared prefs
-   /* @Override
-    protected void onStop() {
-        super.onStop();
+    //SharedPreferences for timer
+    public void saveDateTimer(){
+        SharedPreferences prefGet = getSharedPreferences(SHARED_PREFS, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefGet.edit();
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-
+        editor.putBoolean("timerRunning", mTimerRunning);
+        editor.putLong("endTime", mEndTime);
         editor.putLong("millisLeft", timeStart);
+        editor.putLong("startTimeInMillis", startTimeInMillis);
+
+        //count
+        //editor.putLong("days", count);
+        //editor.putLong("startTimeInDays", timeStartTest);
 
         editor.apply();
     }
 
+    public void loadDataTimer() {
+        SharedPreferences prefGet = getSharedPreferences(SHARED_PREFS, Activity.MODE_PRIVATE);
+
+        startTimeInMillis = prefGet.getLong("startTimeInMillis", timeStart);
+        timeStart = prefGet.getLong("millisLeft", startTimeInMillis);
+
+        //count
+        //timeStartTest= prefGet.getLong("startTimeInDays", count);
+        //count = prefGet.getLong("days", timeStartTest);
+
+
+        mTimerRunning = prefGet.getBoolean("timerRunning", false);
+        if (mTimerRunning) {
+            mEndTime = prefGet.getLong("endTime", 0);
+            timeStart = mEndTime - System.currentTimeMillis();
+            //count = mEndTime -System.currentTimeMillis();
+            if (timeStart < 0) {
+                timeStart = 0;
+                mTimerRunning = false;
+            } else {
+                startTimer();
+            }
+        }
+    }
+
+
+
+    //SharedPreferences for date
+    public void saveData(){
+        SharedPreferences prefGet = getSharedPreferences(SHARED_PREFS, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefGet.edit();
+        editor.putString("date", stringDate);
+        editor.apply();
+    }
+
+    public void loadData(){
+        SharedPreferences prefGet = getSharedPreferences(SHARED_PREFS, Activity.MODE_PRIVATE);
+        String dateValue = prefGet.getString("date", "Date not selected");
+        showDate.setText(dateValue);
+    }
+
+    // date's loadData method onStart
     @Override
     protected void onStart() {
         super.onStart();
+        loadData();
+        loadDataTimer();
+    }
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-
-        timeStart = prefs.getLong("millisLeft", DATE_DIALOG_ID);
-        startTimer();
-
-    }*/
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveDateTimer();
+    }
 }

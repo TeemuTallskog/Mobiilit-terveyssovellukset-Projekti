@@ -20,7 +20,7 @@ public class InfoActivity extends AppCompatActivity {
         // Find the list view from layout
         ListView lv = findViewById(R.id.informationList);
 
-        //  adapter uses to get the actual data to the view.
+        // adapter uses to get the actual data to the view.
         lv.setAdapter(new ArrayAdapter<Information>(
                 this,
                 R.layout.link,

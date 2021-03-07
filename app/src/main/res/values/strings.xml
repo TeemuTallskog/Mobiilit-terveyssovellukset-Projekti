@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">RaskausSovellus</string>
     <string name="Test">Test</string>
+    <string name="date"></string>
+    <string name="days"></string>
+    <string name="weeks"></string>
+    <string name="saveButton">Save and start countdown</string>
     <string name="Submit">Submit</string>
     <string name="Remove">Remove log</string>
     <string name="WeightKey">0.0</string>
