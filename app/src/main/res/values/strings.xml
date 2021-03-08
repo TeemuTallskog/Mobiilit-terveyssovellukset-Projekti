@@ -36,4 +36,9 @@
     <string name="datePicker">Pick conception date</string>
     <string name="Feelings">Put your feelings</string>
     <string name="funFact"><a href = "https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/">fun fact</a></string>
+    <string name="Emergency">Hätäkeskus\n112</string>
+    <string name="Paivystys">Päivystys\n116 117</string>
+    <string name="myrkytys">Myrkytyskeskus\n0800 147 111</string>
+    <string name="Neuvonta">Äidin\nLääkenouvonta\n09 4717 6500</string>
+    <string name="Numbers">Numbers</string>
 </resources>

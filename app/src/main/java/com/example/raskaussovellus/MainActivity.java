@@ -189,6 +189,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             return true;
         }
+        if(id == R.id.nav_calls) {
+            intent = new Intent(this, Numbers.class);
+            startActivity(intent);
+            return true;
+        }
         if(id == R.id.nav_names){
             intent = new Intent(this, GenderNamesActivity.class);
             startActivity(intent);
