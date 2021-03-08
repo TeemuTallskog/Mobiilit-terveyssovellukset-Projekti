@@ -12,7 +12,9 @@ public class Link {
         return ourInstance;
     }
 
-    // list names and websites
+    /**
+     * list names and websites
+     */
     private Link() {
         information = new ArrayList<Information>();
         information.add(new Information("Suosituksia raskaana?\n- Ruokaviraston taulukko elintarvikkeista\n",  "https://www.ruokavirasto.fi/henkiloasiakkaat/tietoa-elintarvikkeista/elintarvikkeiden-turvallisen-kayton-ohjeet/turvallisen-kayton-ohjeet/"));
@@ -28,7 +30,10 @@ public class Link {
         information.add(new Information("\nSynnytyksiin valmistautumine\n", "https://www.terveyskyla.fi/naistalo/raskaus-ja-synnytys/synnytys/synnytykseen-valmistautuminen-ja-synnytys"));
     }
 
-    // return toString method
+    /**
+     * return toString method
+     * @return toString
+     */
     public List<Information> getLink() {
         return information;
     }
