@@ -24,6 +24,10 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
             android:title="@string/Setings" />
+        <item
+            android:id="@+id/nav_calls"
+            android:icon="@drawable/ic_baseline_call_24"
+            android:title="Numbers"/>
 
     </group>
 

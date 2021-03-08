@@ -3,6 +3,7 @@
     package="com.example.raskaussovellus">
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -11,8 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RaskausSovellus">
-        <activity android:name=".LogInspect"
-            android:parentActivityName=".LogHistoryActivity"/>
+        <activity android:name=".Numbers"></activity>
+        <activity
+            android:name=".LogInspect"
+            android:parentActivityName=".LogHistoryActivity" />
         <activity
             android:name=".LogHistoryActivity"
             android:parentActivityName=".MainActivity" />

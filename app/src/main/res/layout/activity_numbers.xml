@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    tools:context=".Numbers">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="202dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Numbers"
+        android:textColor="#040404"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="241dp"
+        android:layout_height="97dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        android:onClick="ekaButton"
+        android:text="Hätäkeskus\n112"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0FD1BF"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="241dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        android:onClick="tokaButton"
+        android:text="Päivystys\n116 117"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0FD1BF"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="241dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        android:onClick="kolmasButton"
+        android:text="Myrkytyskeskus\n0800 147 111"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0FD1BF"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="241dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        android:onClick="neljasButton"
+        android:text="Äidin lääkeneuvonta\n09 4717 6500"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0FD1BF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+</androidx.constraintlayout.widget.ConstraintLayout>
