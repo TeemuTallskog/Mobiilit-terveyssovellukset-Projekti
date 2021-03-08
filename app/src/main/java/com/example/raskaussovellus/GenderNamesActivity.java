@@ -20,7 +20,7 @@ public class GenderNamesActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.genderLv);
         lv.setAdapter(new ArrayAdapter<Genders>(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.link,
                 name.getGenders())
         );
 

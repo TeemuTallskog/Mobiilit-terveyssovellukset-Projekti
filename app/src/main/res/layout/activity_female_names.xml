@@ -10,6 +10,8 @@
         android:id="@+id/lvFemale"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fontFamily="serif"
+        android:textColor="#040404"
         tools:layout_editor_absoluteX="127dp"
         tools:layout_editor_absoluteY="159dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

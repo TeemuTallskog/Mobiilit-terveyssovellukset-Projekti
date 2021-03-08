@@ -34,6 +34,10 @@ public class Numbers extends AppCompatActivity {
         button6 = findViewById(R.id.button6);
     }
 
+    /**
+     * when button is clicked -> action_dial shows number and you can call it
+     * @param view
+     */
     public void ekaButton(View view) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:112"));

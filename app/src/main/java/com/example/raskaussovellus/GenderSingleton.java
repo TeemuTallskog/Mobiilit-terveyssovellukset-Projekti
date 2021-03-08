@@ -27,9 +27,9 @@ public class GenderSingleton {
         genders = new ArrayList<Genders>();
 
         genders = new ArrayList<Genders>();
-        genders.add(new Genders("Female names"));
-        genders.add(new Genders("Males names"));
-        genders.add(new Genders("Neutral names"));
+        genders.add(new Genders("\nFemale names\n"));
+        genders.add(new Genders("\nMales names\n"));
+        genders.add(new Genders("\nNeutral names\n"));
     }
 
     /**

@@ -23,6 +23,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * click button -> alarm class
+     * @param view
+     */
+
     public void launchActivity(View view){
         Intent intent = new Intent(this, Alarm.class);
         startActivity(intent);

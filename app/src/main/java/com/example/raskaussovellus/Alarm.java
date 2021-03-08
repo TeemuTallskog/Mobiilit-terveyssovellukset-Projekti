@@ -57,7 +57,9 @@ public class Alarm extends AppCompatActivity {
             timePickerDialog = new TimePickerDialog(Alarm.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    // Edit Text shows hour and minute
+                    /**
+                     * Edit Text shows hour and minute
+                     */
                     timeHour.setText(String.format("%02d", hourOfDay));
                     timeMinute.setText(String.format("%02d", minute));
                 }

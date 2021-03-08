@@ -22,46 +22,46 @@ public class MaleNamesActivity extends AppCompatActivity {
          * Creates ne list and add names to it
          */
         ArrayList<String> arrayList= new ArrayList<>();
-        arrayList.add("Juhani");
-        arrayList.add("Olavi");
-        arrayList.add("Johannes");
-        arrayList.add("Mikael");
-        arrayList.add("Oliver");
-        arrayList.add("Ilmari");
-        arrayList.add("Juhani");
-        arrayList.add("Onni");
-        arrayList.add("Elias");
-        arrayList.add("Eino");
-        arrayList.add("Matias");
-        arrayList.add("Antero");
-        arrayList.add("Leo");
-        arrayList.add("Toivo");
-        arrayList.add("Väinö");
-        arrayList.add("Viljami");
-        arrayList.add("Tapio");
-        arrayList.add("Tapani");
-        arrayList.add("Oskari");
-        arrayList.add("Emil");
-        arrayList.add("Eemil");
-        arrayList.add("Veikko");
-        arrayList.add("Samuel");
-        arrayList.add("Eemeli");
-        arrayList.add("Benjamin");
-        arrayList.add("Kristian");
-        arrayList.add("Eeli");
-        arrayList.add("Armas");
-        arrayList.add("Armas");
-        arrayList.add("Noel");
-        arrayList.add("Alvar");
-        arrayList.add("Vilho");
-        arrayList.add("Kalevi");
-        arrayList.add("Aatos");
-        arrayList.add("Sakari");
+        arrayList.add("\nJuhani\n");
+        arrayList.add("\nOlavi\n");
+        arrayList.add("\nJohannes\n");
+        arrayList.add("\nMikael\n");
+        arrayList.add("\nOliver\n");
+        arrayList.add("\nIlmari\n");
+        arrayList.add("\nJuhani\n");
+        arrayList.add("\nOnni\n");
+        arrayList.add("\nElias\n");
+        arrayList.add("\nEino\n");
+        arrayList.add("\nMatias\n");
+        arrayList.add("\nAntero\n");
+        arrayList.add("\nLeo\n");
+        arrayList.add("\nToivo\n");
+        arrayList.add("\nVäinö\n");
+        arrayList.add("\nViljami\n");
+        arrayList.add("\nTapio\n");
+        arrayList.add("\nTapani\n");
+        arrayList.add("\nOskari\n");
+        arrayList.add("\nEmil\n");
+        arrayList.add("\nEemil\n");
+        arrayList.add("\nVeikko\n");
+        arrayList.add("\nSamuel\n");
+        arrayList.add("\nEemeli\n");
+        arrayList.add("\nBenjamin\n");
+        arrayList.add("\nKristian\n");
+        arrayList.add("\nEeli\n");
+        arrayList.add("\nArmas\n");
+        arrayList.add("\nArmas\n");
+        arrayList.add("\nNoel\n");
+        arrayList.add("\nAlvar\n");
+        arrayList.add("\nVilho\n");
+        arrayList.add("\nKalevi\n");
+        arrayList.add("\nAatos\n");
+        arrayList.add("\nSakari\n");
 
         /**
          * list layout type
          */
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.link, arrayList);
         listView.setAdapter(arrayAdapter);
 
     }
