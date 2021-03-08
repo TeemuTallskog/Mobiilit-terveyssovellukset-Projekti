@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     /**
-     * pulls the set date and sets values accordingly
+     * pulls the set date from preferences and sets values accordingly.
      */
-    public void pullPrefs(){
+    private void pullPrefs(){
         TextView weekLeftTV = findViewById(R.id.weeks);
         TextView daysLeftTV = findViewById(R.id.days);
         TextView date = findViewById(R.id.date);
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     /**
-     * if value is under 10 it add a 0 infront.
+     * if value is under 10. it adds a 0 in front of the number.
      * @param i
      * @return returns a string containing int
      */

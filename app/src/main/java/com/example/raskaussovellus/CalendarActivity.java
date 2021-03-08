@@ -1,8 +1,10 @@
 package com.example.raskaussovellus;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -99,10 +101,25 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     public void onBtnRemove(View v){
-        db.deleteData(dateID);
-        customDataBox.setText("");
-        setMoodImage(0);
-        weightView.setText("0.0 Kg");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to \n remove this log?").setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        db.deleteData(dateID);
+                        customDataBox.setText("");
+                        setMoodImage(0);
+                        weightView.setText("0.0 Kg");
+                        finish();
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void newEntry(View view){
