@@ -12,46 +12,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/funFact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="serif"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/funFact"
-            android:textColor="#040404"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date" />
-
         <ProgressBar
             android:id="@+id/Progress_bar"
             android:layout_width="400dp"
             android:layout_height="300dp"
+            android:layout_marginBottom="32dp"
             android:indeterminateOnly="false"
             android:progressDrawable="@drawable/circle"
-            app:layout_constraintBottom_toTopOf="@+id/btnChangeDate"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.577"
             tools:progress="60" />
 
         <TextView
-            android:id="@+id/precentageText"
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="serif"
-            android:textColor="#040404"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/weeks"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/Progress_bar"
+            app:layout_constraintEnd_toEndOf="@+id/Progress_bar"
+            app:layout_constraintStart_toStartOf="@+id/Progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/Progress_bar"
             tools:text="60%" />
 
 
@@ -63,7 +47,7 @@
             android:background="@drawable/rounded"
             android:fontFamily="serif"
             android:onClick="launchActivity"
-            android:text="@string/Feelings"
+            android:text="Put your feelings"
             android:textColor="#040404"
             android:textStyle="bold"
             app:backgroundTint="#0FD1BF"
@@ -131,26 +115,13 @@
             app:layout_constraintTop_toTopOf="@+id/layoutToolBar" />
 
         <TextView
-            android:id="@+id/weeks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="serif"
-            android:textColor="#040404"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/days"
-            app:layout_constraintEnd_toEndOf="@+id/days"
-            app:layout_constraintStart_toStartOf="@+id/days" />
-
-        <TextView
             android:id="@+id/days"
             android:layout_width="189dp"
             android:layout_height="147dp"
             android:fontFamily="serif"
             android:gravity="center"
             android:textColor="#040404"
-            android:textSize="25sp"
+            android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/Progress_bar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -158,18 +129,24 @@
             app:layout_constraintTop_toTopOf="@+id/Progress_bar" />
 
         <TextView
+            android:id="@+id/weeks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/days"
+            app:layout_constraintEnd_toEndOf="@+id/days"
+            app:layout_constraintStart_toStartOf="@+id/days" />
+
+        <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="serif"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="@string/Test"
-            android:textColor="#040404"
-            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/Progress_bar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Progress_bar" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnChangeDate"
@@ -178,11 +155,31 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/rounded"
             android:fontFamily="serif"
-            android:text="@string/datePicker"
             android:textColor="#040404"
-            android:textStyle="bold"
             app:backgroundTint="#0FD1BF"
+            android:textStyle="bold"
+            android:text="DatePicker"
             app:layout_constraintBottom_toTopOf="@+id/feelings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/saveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/saveButton"
+            app:layout_constraintBottom_toTopOf="@+id/date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

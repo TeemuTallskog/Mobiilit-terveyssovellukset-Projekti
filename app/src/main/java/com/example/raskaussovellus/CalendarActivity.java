@@ -1,10 +1,8 @@
 package com.example.raskaussovellus;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -99,31 +97,12 @@ public class CalendarActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Asks confirmation on if you actually want to remove a certain data log.
-     * if user agrees it removes a datalog based on the date selected.
-     * @param v
-     */
+
     public void onBtnRemove(View v){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to \n remove this log?").setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        db.deleteData(dateID);
-                        customDataBox.setText("");
-                        setMoodImage(0);
-                        weightView.setText("0.0 Kg");
-                        dialog.cancel();
-                    }
-                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        db.deleteData(dateID);
+        customDataBox.setText("");
+        setMoodImage(0);
+        weightView.setText("0.0 Kg");
     }
 
     public void newEntry(View view){
@@ -134,11 +113,6 @@ public class CalendarActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * if a number is under
-     * @param i
-     * @return
-     */
     private String underTen(int i){
         String stringNum;
         if (i < 10){
