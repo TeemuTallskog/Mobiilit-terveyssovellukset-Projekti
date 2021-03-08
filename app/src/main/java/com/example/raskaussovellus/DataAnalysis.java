@@ -1,5 +1,6 @@
 package com.example.raskaussovellus;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
@@ -36,28 +37,33 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Pulls data from the databse and puts it on A GraphView.
+ */
 public class DataAnalysis extends AppCompatActivity {
 
-    GraphView graphView;
-    LineGraphSeries<DataPoint> lineGraphSeries;
-    PointsGraphSeries<DataPoint> pointsGraphSeries;
-    BarGraphSeries<DataPoint> barGraphSeries;
-    DataPoint[] dataPoints;
-    DataPoint[] moodDataPoints;
-    SimpleDateFormat sdf;
-    RadioGroup radioGroup;
-    RadioGroup moodRadioGroup;
-    long todayInMillis;
-    long dayInMillis;
-    long monthInMillis;
-    long threeMonthsInMillis;
-    long sixMonthsInMillis;
+    private GraphView graphView;
+    private LineGraphSeries<DataPoint> lineGraphSeries;
+    private PointsGraphSeries<DataPoint> pointsGraphSeries;
+    private BarGraphSeries<DataPoint> barGraphSeries;
+    private DataPoint[] dataPoints;
+    private DataPoint[] moodDataPoints;
+    private SimpleDateFormat sdf;
+    private RadioGroup radioGroup;
+    private RadioGroup moodRadioGroup;
+    private long todayInMillis;
+    private long dayInMillis;
+    private long monthInMillis;
+    private long threeMonthsInMillis;
+    private long sixMonthsInMillis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_analysis);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Graphs");
         Calendar date = Calendar.getInstance();
         todayInMillis = date.getTimeInMillis() + TimeUnit.DAYS.toMillis(1);
         graphView =(GraphView) findViewById(R.id.lineChart);

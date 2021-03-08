@@ -16,6 +16,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * creates an SQLite databse and handels requests to pull data and to add data.
+ */
 public class CalendarDatabase extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;

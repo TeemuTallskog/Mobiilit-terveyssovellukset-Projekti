@@ -1,6 +1,7 @@
 package com.example.raskaussovellus;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,9 @@ import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Objects;
 
+/**
+ * Calendar activity displays a calendar and the data on selected date.
+ */
 public class CalendarActivity extends AppCompatActivity {
 
     private static final String TAG = "CalendarView";
@@ -33,13 +37,13 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_view);
-        CalendarView calendarView = findViewById(R.id.calendarView);
         customDataBox = findViewById(R.id.customData);
         weightView = findViewById(R.id.drawWeight);
         imageView = findViewById(R.id.emojiLog);
         //adds a back button to the toolbar that leads to the MainActivity
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Calendar");
         Calendar calendar = Calendar.getInstance();
         int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
         int currentMonth = calendar.get(Calendar.MONTH);
@@ -58,8 +62,15 @@ public class CalendarActivity extends AppCompatActivity {
         }
         setMoodImage(currentDayData.getMood());
         weightView.setText(String.format(getResources().getString(R.string.DrawWeight),String.valueOf(currentDayData.getWeight())));
+        setDateSelectListener();
+    }
 
-
+    /**
+     * Sets the date select listener.
+     * on click it pulls data from the database and updates the view.
+     */
+    private void setDateSelectListener(){
+        CalendarView calendarView = findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             /**
              * Adds a listener that checks when the user clicks on a certain date and displays the data related to that date.
@@ -85,7 +96,7 @@ public class CalendarActivity extends AppCompatActivity {
      *  changes the mood image according to the parameter
      * @param mood as a parameter you pull the mood data for that day from database
      */
-    public void setMoodImage(int mood){
+    private void setMoodImage(int mood){
         if(mood == 0){
             imageView.setImageResource(R.drawable.empty_mood_input);
         }else if(mood == 4){
@@ -126,6 +137,10 @@ public class CalendarActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    /**
+     * On click opens the CalendarInput activity.
+     * @param view
+     */
     public void newEntry(View view){
         Intent intent = new Intent(this, CalendarInput.class);
         intent.putExtra("Origin", "Calendar");

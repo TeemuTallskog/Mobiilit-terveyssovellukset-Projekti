@@ -1,5 +1,6 @@
 package com.example.raskaussovellus;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+/**
+ * Calendar input activity is used to add data logs into the database.
+ */
 public class CalendarInput extends AppCompatActivity {
     private String dateID;
     private CalendarData calendarData;
@@ -23,7 +27,9 @@ public class CalendarInput extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_input);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Calendar Input");
         Intent intent = getIntent();
         String origin = intent.getStringExtra("Origin");
         Log.i("tag", origin);
@@ -46,7 +52,7 @@ public class CalendarInput extends AppCompatActivity {
      * @param cData Input parameter is the Calendardata object pulled from the database.
      *
      */
-    public void setDefaults(CalendarData cData){
+    private void setDefaults(CalendarData cData){
         int mood = cData.getMood();
         RadioGroup radioGroup = findViewById(R.id.emojiRadioGrp);
         if(mood != 0){

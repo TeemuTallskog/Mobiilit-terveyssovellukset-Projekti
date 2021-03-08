@@ -4,16 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,15 +17,16 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.google.android.material.navigation.NavigationView;
-
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Main activity displays the expected date, fun fact about pregnancy and weeks/days left.
+ */
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private NavigationView drawer;
@@ -220,8 +217,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
-
     public void btnOnClickListener() {
         btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
         btnChangeDate.setOnClickListener(new View.OnClickListener() {
@@ -274,8 +269,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             SharedPreferences.Editor prefEditor = preferences.edit();
             prefEditor.putLong(PREFS, dateInMillis);
             prefEditor.commit();
-            ExpectedDateHandler dateHandler = new ExpectedDateHandler();
-
             pullPrefs();
         }
     };

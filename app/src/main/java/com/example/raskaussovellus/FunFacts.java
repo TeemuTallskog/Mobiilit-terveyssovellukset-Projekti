@@ -4,13 +4,15 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+/**
+ * Contains a list of fun facts about your baby and returns them based on the pregnancy week.
+ */
 public class FunFacts {
 
     public FunFacts(){
     }
 
     public String getFact(int week){
-        Log.i("tag, funfact", String.valueOf(week));
         if(week > 20){
             return topArray(week);
         }
