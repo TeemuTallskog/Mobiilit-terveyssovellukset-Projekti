@@ -99,7 +99,11 @@ public class CalendarActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Asks confirmation on if you actually want to remove a certain data log.
+     * if user agrees it removes a datalog based on the date selected.
+     * @param v
+     */
     public void onBtnRemove(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to \n remove this log?").setCancelable(false)
@@ -110,7 +114,7 @@ public class CalendarActivity extends AppCompatActivity {
                         customDataBox.setText("");
                         setMoodImage(0);
                         weightView.setText("0.0 Kg");
-                        finish();
+                        dialog.cancel();
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
@@ -130,6 +134,11 @@ public class CalendarActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * if a number is under
+     * @param i
+     * @return
+     */
     private String underTen(int i){
         String stringNum;
         if (i < 10){
