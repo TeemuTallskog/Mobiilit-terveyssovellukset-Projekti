@@ -12,9 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RaskausSovellus">
-<<<<<<< HEAD
-        <activity android:name=".Numbers"></activity>
-=======
+        <activity android:name=".Numbers"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".NeutralNamesActivity"
             android:parentActivityName=".GenderNamesActivity" />
@@ -27,7 +26,6 @@
         <activity
             android:name=".GenderNamesActivity"
             android:parentActivityName=".MainActivity" />
->>>>>>> d4b40b9e5e5d164253c14ca990d20dd28e49e6e9
         <activity
             android:name=".LogInspect"
             android:parentActivityName=".LogHistoryActivity" />

@@ -28,14 +28,10 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
             android:title="@string/Setings" />
-<<<<<<< HEAD
         <item
             android:id="@+id/nav_calls"
             android:icon="@drawable/ic_baseline_call_24"
             android:title="Numbers"/>
-
-=======
->>>>>>> d4b40b9e5e5d164253c14ca990d20dd28e49e6e9
     </group>
 
 </menu>

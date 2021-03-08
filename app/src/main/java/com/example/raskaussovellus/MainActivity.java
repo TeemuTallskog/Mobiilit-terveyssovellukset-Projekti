@@ -195,13 +195,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             return true;
         }
-<<<<<<< HEAD
-        if(id == R.id.nav_calls){
+        if(id == R.id.nav_calls) {
             intent = new Intent(this, Numbers.class);
-=======
+            startActivity(intent);
+            return true;
+        }
         if(id == R.id.nav_names){
             intent = new Intent(this, GenderNamesActivity.class);
->>>>>>> d4b40b9e5e5d164253c14ca990d20dd28e49e6e9
             startActivity(intent);
             return true;
         }

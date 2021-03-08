@@ -1,0 +1,216 @@
+@startuml
+class com.example.raskaussovellus.Information {
+- String name
+- String website
++ String getName()
++ String getWebsite()
++ String toString()
+}
+class com.example.raskaussovellus.CalendarDatabase {
+- {static} int DATABASE_VERSION
+- {static} String DATABASE_NAME
+- {static} String TABLE_NAME
+- {static} String CUSTOM_DATA
+- {static} String KEY_ID
+- {static} String WEIGHT
+- {static} String MOOD
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ void addData(CalendarData)
++ void deleteData(String)
+~ CalendarData getCalendarData(String)
++ DataPoint[] getWeight()
++ DataPoint[] getMood()
++ ArrayList<CalendarData> getAllData()
+- long formatDate(String)
++ void wipeData()
+}
+class com.example.raskaussovellus.SettingsActivity {
+# void onCreate(Bundle)
++ void launchActivity(View)
++ void wipeData(View)
+}
+class com.example.raskaussovellus.GenderSingleton {
+- {static} GenderSingleton genderInstance
+- List<Genders> genders
++ {static} GenderSingleton getInstanceGender()
++ List<Genders> getGenders()
+}
+class com.example.raskaussovellus.MainActivity {
+- NavigationView drawer
+- Button btnChangeDate
+- int day
+- int month
+- int year
+~ {static} int DATE_DIALOG_ID
++ {static} String DATE
++ {static} String DATE_ID
++ {static} String PREFS
+- DatePickerDialog.OnDateSetListener datePickerListener
+# void onCreate(Bundle)
++ void onResume()
++ void onStart()
+- void pullPrefs()
+- void updateProgressBar(int)
+- void getFunFact(int)
++ void launchActivity(View)
+- String underTen(int)
++ boolean onNavigationItemSelected(MenuItem)
++ void viewDate()
++ void btnOnClickListener()
+# Dialog onCreateDialog(int)
+}
+class com.example.raskaussovellus.LogInspect {
+# void onCreate(Bundle)
+- void setMoodImage(int,ImageView)
+- void setFormattedDate(String,TextView)
+}
+class com.example.raskaussovellus.DataAnalysis {
+~ GraphView graphView
+~ LineGraphSeries<DataPoint> lineGraphSeries
+~ PointsGraphSeries<DataPoint> pointsGraphSeries
+~ BarGraphSeries<DataPoint> barGraphSeries
+~ DataPoint[] dataPoints
+~ DataPoint[] moodDataPoints
+~ SimpleDateFormat sdf
+~ RadioGroup radioGroup
+~ RadioGroup moodRadioGroup
+~ long todayInMillis
+~ long dayInMillis
+~ long monthInMillis
+~ long threeMonthsInMillis
+~ long sixMonthsInMillis
+# void onCreate(Bundle)
+- void getDatabaseData()
+- void setRadioListeners()
+- void setListeners()
+- void viewLimit(Boolean)
+- void addSeriesLimist()
+- void barGraphColor()
+- void getWeightAverage()
+}
+class com.example.raskaussovellus.Link {
+- List<Information> information
+- {static} Link ourInstance
++ {static} Link getInstance()
++ List<Information> getLink()
+}
+class com.example.raskaussovellus.MaleNamesActivity {
+- ListView listView
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.CalendarActivity {
+- {static} String TAG
++ {static} String DATE
++ {static} String DATE_ID
+- String dateID
+- String selectedDate
+- TextView customDataBox
+- CalendarDatabase db
+- TextView weightView
+- ImageView imageView
+# void onCreate(Bundle)
++ void setMoodImage(int)
++ void onBtnRemove(View)
++ void newEntry(View)
+- String underTen(int)
+}
+class com.example.raskaussovellus.InfoActivity {
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.ExpectedDateHandler {
+~ long nineMonthsMillis
++ String daysLeft(long)
++ int weeksLeft(long)
++ String getExpectedDate(long)
+- long getDaysLeftInMillis(long)
++ int getProgress(long)
+}
+class com.example.raskaussovellus.FemaleNamesActivity {
+- ListView listView
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.LogHistoryAdapter {
+~ Context context
+~ ArrayList<CalendarData> arrayList
++ int getCount()
++ Object getItem(int)
++ long getItemId(int)
++ View getView(int,View,ViewGroup)
+- void setFormattedDate(String,TextView,TextView)
+- void setMoodImage(int,ImageView)
+}
+class com.example.raskaussovellus.FunFacts {
++ String getFact(int)
+- String topArray(int)
+- String bottomArray(int)
+}
+class com.example.raskaussovellus.LogHistoryActivity {
++ {static} String POSITION
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.GenderNamesActivity {
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.Alarm {
+~ TextView timeHour
+~ TextView timeMinute
+~ Button setAlarm
+~ Button setTime
+~ TimePickerDialog timePickerDialog
+~ Calendar calendar
+~ int currentHour
+~ int currentMinute
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.CalendarData {
+- String customData
+- String dateID
+- double weight
+- int mood
++ void setCustomData(String)
++ void setDateID(String)
++ void setWeight(float)
++ void setMood(int)
++ double getWeight()
++ String getCustomData()
++ String getDateID()
++ int getMood()
+}
+class com.example.raskaussovellus.CalendarInput {
+- String dateID
+- CalendarData calendarData
+- String selectedDate
+# void onCreate(Bundle)
++ void setDefaults(CalendarData)
++ void submitData(View)
++ boolean isNumeric(String)
+- void falseEntry(String)
+}
+class com.example.raskaussovellus.NeutralNamesActivity {
+- ListView listView
+# void onCreate(Bundle)
+}
+class com.example.raskaussovellus.Genders {
+- String gender
++ String toString()
+}
+
+
+android.database.sqlite.SQLiteOpenHelper <|-- com.example.raskaussovellus.CalendarDatabase
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.SettingsActivity
+com.example.raskaussovellus.OnNavigationItemSelectedListener <|.. com.example.raskaussovellus.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.LogInspect
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.DataAnalysis
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.MaleNamesActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.CalendarActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.InfoActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.FemaleNamesActivity
+android.widget.BaseAdapter <|-- com.example.raskaussovellus.LogHistoryAdapter
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.LogHistoryActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.GenderNamesActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.Alarm
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.CalendarInput
+androidx.appcompat.app.AppCompatActivity <|-- com.example.raskaussovellus.NeutralNamesActivity
+@enduml
