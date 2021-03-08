@@ -16,6 +16,10 @@ public class GenderNamesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender);
 
+        /**
+         * name object refers to singleton
+         * setAdapter method sets the correct list view
+         */
         GenderSingleton name = GenderSingleton.getInstanceGender();
         ListView lv = findViewById(R.id.genderLv);
         lv.setAdapter(new ArrayAdapter<Genders>(
@@ -25,7 +29,8 @@ public class GenderNamesActivity extends AppCompatActivity {
         );
 
         /**
-         * onClick listener checks what index in the list and launch the corresponding activity
+         * onClick listener checks what index in the list is clicked
+         * and launch the corresponding activity
          */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

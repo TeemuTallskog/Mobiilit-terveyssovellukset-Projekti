@@ -1,29 +1,26 @@
 <resources>
     <string name="app_name">Something to wait</string>
     <string name="Test">Test</string>
-    <string name="date"></string>
-    <string name="days"></string>
-    <string name="weeks"></string>
     <string name="saveButton">Save and start countdown</string>
     <string name="Submit">Submit</string>
     <string name="Remove">Remove log</string>
     <string name="WeightKey">0.0</string>
     <string name="Kg">Kg</string>
     <string name="PlusBtn">+</string>
-    <string name="header">Sovelluksen nimi</string>
     <string name="Hour">Hour</string>
     <string name="Minute">Minute</string>
     <string name="Alarm">Set alarm</string>
+    <string name="alert">Alarm</string>
     <string name="Time">Set time</string>
     <string name="newEntry">Edit log</string>
     <string name="Mood">Mood emoji</string>
     <string name="DrawWeight">%1$s Kg</string>
     <string name="CustomInfo">Write a custom log</string>
     <string name="weight">Weight</string>
-    <string name="mood">Select todays mood</string>
+    <string name="mood">Select today\'s mood</string>
     <string name="Calendar">Calendar</string>
     <string name="Information">Information</string>
-    <string name="Setings">Settings</string>
+    <string name="Settings">Settings</string>
     <string name="Data">Graphs</string>
     <string name="NinetyDays">90 days</string>
     <string name="ThirtyDays">30 days</string>
@@ -34,9 +31,9 @@
     <string name="Weight">Weight</string>
     <string name="placeholderDate">January 1st</string>
     <string name="History">Log history</string>
-    <string name="Names">Names</string>
+    <string name="Names">Names for newborns</string>
     <string name="Categories">Categories</string>
-    <string name="datePicker">Datepicker</string>
+    <string name="datePicker">Pick conception date</string>
     <string name="Feelings">Put your feelings</string>
     <string name="funFact"><a href = "https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/">fun fact</a></string>
 </resources>
