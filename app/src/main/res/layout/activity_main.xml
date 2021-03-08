@@ -44,7 +44,6 @@
             android:id="@+id/precentageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:fontFamily="serif"
             android:textColor="#040404"
             android:textSize="15sp"
@@ -107,7 +106,7 @@
             android:layout_height="43dp"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
             android:contentDescription="@string/app_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -134,28 +133,30 @@
             android:id="@+id/weeks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="38dp"
             android:fontFamily="serif"
+            android:text="@string/Test"
             android:textColor="#040404"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/days"
+            app:layout_constraintBottom_toBottomOf="@+id/Progress_bar"
             app:layout_constraintEnd_toEndOf="@+id/days"
-            app:layout_constraintStart_toStartOf="@+id/days" />
+            app:layout_constraintStart_toStartOf="@+id/days"
+            app:layout_constraintTop_toTopOf="@+id/Progress_bar" />
 
         <TextView
             android:id="@+id/days"
-            android:layout_width="189dp"
-            android:layout_height="147dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:gravity="center"
+            android:text="@string/Test"
             android:textColor="#040404"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/Progress_bar"
+            app:layout_constraintBottom_toTopOf="@+id/weeks"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Progress_bar" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/date"

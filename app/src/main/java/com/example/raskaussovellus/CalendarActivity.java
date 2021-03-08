@@ -127,7 +127,7 @@ public class CalendarActivity extends AppCompatActivity {
                         weightView.setText("0.0 Kg");
                         dialog.cancel();
                     }
-                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
