@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class NeutralNamesActivity extends AppCompatActivity {
     private ListView listView;
+    private ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class NeutralNamesActivity extends AppCompatActivity {
 
         listView =(ListView)findViewById(R.id.LvNeutral);
 
+        //Creates ArrayList and add name strings to it
         ArrayList<String> arrayList= new ArrayList<>();
         arrayList.add("\nAden\n");
         arrayList.add("\nAdel\n");
@@ -54,7 +56,8 @@ public class NeutralNamesActivity extends AppCompatActivity {
         arrayList.add("\nEmi\n");
         arrayList.add("\nHede\n");
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.link, arrayList);
+        //list layout type
+        arrayAdapter = new ArrayAdapter(this, R.layout.link, arrayList);
         listView.setAdapter(arrayAdapter);
     }
 }

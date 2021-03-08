@@ -21,10 +21,8 @@ public class GenderNamesActivity extends AppCompatActivity {
         ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
         actionBar.setTitle("Newborn Names");
 
-        /**
-         * name object refers to singleton
-         * setAdapter method sets the correct list view
-         */
+        //name object refers to singleton
+        //setAdapter method gets the list and sets the correct list view
         GenderSingleton name = GenderSingleton.getInstanceGender();
         ListView lv = findViewById(R.id.genderLv);
         lv.setAdapter(new ArrayAdapter<Genders>(
