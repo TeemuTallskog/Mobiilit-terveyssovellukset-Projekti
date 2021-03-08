@@ -32,9 +32,6 @@ public class GenderSingleton {
         genders.add(new Genders("\nMales names\n"));
         genders.add(new Genders("\nNeutral names\n"));
 
-        genders.add(new Genders("Female names"));
-        genders.add(new Genders("Male names"));
-        genders.add(new Genders("Neutral names"));
 
     }
 
