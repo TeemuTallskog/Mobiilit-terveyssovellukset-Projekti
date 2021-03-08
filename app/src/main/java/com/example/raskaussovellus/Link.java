@@ -27,7 +27,7 @@ public class Link {
         information.add(new Information("\nRaskaus viikko viikolta\n", "https://natalben.fi/raskaus-viikko-viikolta/\n"));
         information.add(new Information("\nFun fact lapsesi koosta raskauden aikana!\n", "https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/"));
         information.add(new Information("\nKela asiat kuntoon!\n", "https://www.kela.fi/aitiysraha"));
-        information.add(new Information("\nSynnytyksiin valmistautumine\n", "https://www.terveyskyla.fi/naistalo/raskaus-ja-synnytys/synnytys/synnytykseen-valmistautuminen-ja-synnytys"));
+        information.add(new Information("\nSynnytyksiin valmistautuminen\n", "https://www.terveyskyla.fi/naistalo/raskaus-ja-synnytys/synnytys/synnytykseen-valmistautuminen-ja-synnytys"));
     }
 
     /**

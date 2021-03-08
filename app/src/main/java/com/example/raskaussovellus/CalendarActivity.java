@@ -1,6 +1,7 @@
 package com.example.raskaussovellus;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,8 +39,9 @@ public class CalendarActivity extends AppCompatActivity {
         weightView = findViewById(R.id.drawWeight);
         imageView = findViewById(R.id.emojiLog);
         //adds a back button to the toolbar that leads to the MainActivity
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Calendar");
         Calendar calendar = Calendar.getInstance();
         int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
         int currentMonth = calendar.get(Calendar.MONTH);

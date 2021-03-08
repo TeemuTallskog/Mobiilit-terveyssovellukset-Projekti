@@ -266,8 +266,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             SharedPreferences.Editor prefEditor = preferences.edit();
             prefEditor.putLong(PREFS, dateInMillis);
             prefEditor.commit();
-            ExpectedDateHandler dateHandler = new ExpectedDateHandler();
-
             pullPrefs();
         }
     };

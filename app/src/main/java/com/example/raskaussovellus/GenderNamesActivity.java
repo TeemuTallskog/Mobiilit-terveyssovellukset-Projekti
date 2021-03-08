@@ -1,5 +1,6 @@
 package com.example.raskaussovellus;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,12 +10,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.Objects;
+
 public class GenderNamesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender);
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setTitle("Newborn Names");
 
         /**
          * name object refers to singleton

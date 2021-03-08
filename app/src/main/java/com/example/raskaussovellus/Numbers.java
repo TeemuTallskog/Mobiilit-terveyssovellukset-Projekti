@@ -1,5 +1,6 @@
 package com.example.raskaussovellus;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -26,7 +27,9 @@ public class Numbers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Useful numbers");
 
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
@@ -51,7 +54,7 @@ public class Numbers extends AppCompatActivity {
         startActivity(intent);
     }
     public void neljasButton(View view) {
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:09 4717 6500"));
         startActivity(intent);
     }

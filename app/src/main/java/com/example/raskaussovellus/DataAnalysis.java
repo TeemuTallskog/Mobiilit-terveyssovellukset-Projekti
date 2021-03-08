@@ -1,5 +1,6 @@
 package com.example.raskaussovellus;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
@@ -57,7 +58,9 @@ public class DataAnalysis extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_analysis);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Graphs");
         Calendar date = Calendar.getInstance();
         todayInMillis = date.getTimeInMillis() + TimeUnit.DAYS.toMillis(1);
         graphView =(GraphView) findViewById(R.id.lineChart);
