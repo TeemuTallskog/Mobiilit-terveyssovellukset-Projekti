@@ -14,6 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * pulls all logs from the database and displays them on a list view.
+ */
 public class LogHistoryActivity extends AppCompatActivity {
 
     public final static String POSITION = "position";

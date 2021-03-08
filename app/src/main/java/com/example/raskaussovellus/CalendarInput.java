@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+/**
+ * Calendar input activity is used to add data logs into the database.
+ */
 public class CalendarInput extends AppCompatActivity {
     private String dateID;
     private CalendarData calendarData;
@@ -49,7 +52,7 @@ public class CalendarInput extends AppCompatActivity {
      * @param cData Input parameter is the Calendardata object pulled from the database.
      *
      */
-    public void setDefaults(CalendarData cData){
+    private void setDefaults(CalendarData cData){
         int mood = cData.getMood();
         RadioGroup radioGroup = findViewById(R.id.emojiRadioGrp);
         if(mood != 0){

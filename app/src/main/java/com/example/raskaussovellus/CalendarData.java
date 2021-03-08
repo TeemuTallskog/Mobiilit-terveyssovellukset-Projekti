@@ -1,10 +1,10 @@
 package com.example.raskaussovellus;
 
+/**
+ * CalendarData stores the data related to a certain date.
+ * Stored data includes: Date id, weight, mood, custom line of text.
+ */
 public class CalendarData {
-    /**
-     * CalendarData stores the data related to a certain date.
-     */
-
     private String customData;
     //dateID will be year + month + day of the month  ex. 20201113
     private String dateID;

@@ -37,22 +37,25 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Pulls data from the databse and puts it on A GraphView.
+ */
 public class DataAnalysis extends AppCompatActivity {
 
-    GraphView graphView;
-    LineGraphSeries<DataPoint> lineGraphSeries;
-    PointsGraphSeries<DataPoint> pointsGraphSeries;
-    BarGraphSeries<DataPoint> barGraphSeries;
-    DataPoint[] dataPoints;
-    DataPoint[] moodDataPoints;
-    SimpleDateFormat sdf;
-    RadioGroup radioGroup;
-    RadioGroup moodRadioGroup;
-    long todayInMillis;
-    long dayInMillis;
-    long monthInMillis;
-    long threeMonthsInMillis;
-    long sixMonthsInMillis;
+    private GraphView graphView;
+    private LineGraphSeries<DataPoint> lineGraphSeries;
+    private PointsGraphSeries<DataPoint> pointsGraphSeries;
+    private BarGraphSeries<DataPoint> barGraphSeries;
+    private DataPoint[] dataPoints;
+    private DataPoint[] moodDataPoints;
+    private SimpleDateFormat sdf;
+    private RadioGroup radioGroup;
+    private RadioGroup moodRadioGroup;
+    private long todayInMillis;
+    private long dayInMillis;
+    private long monthInMillis;
+    private long threeMonthsInMillis;
+    private long sixMonthsInMillis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

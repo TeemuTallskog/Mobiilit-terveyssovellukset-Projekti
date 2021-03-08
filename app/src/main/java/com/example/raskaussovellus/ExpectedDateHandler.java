@@ -6,6 +6,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Handles the expected date calculations from the set date and returns readable data.
+ */
 public class ExpectedDateHandler {
     long nineMonthsMillis  = TimeUnit.DAYS.toMillis(280);
 

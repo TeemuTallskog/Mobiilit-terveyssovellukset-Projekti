@@ -12,6 +12,9 @@ import android.widget.TextView;
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 
+/**
+ * adapter that puts CalendarData into log_row.xml layout
+ */
 public class LogHistoryAdapter extends BaseAdapter {
 
     Context context;
@@ -68,6 +71,12 @@ public class LogHistoryAdapter extends BaseAdapter {
         return convertView;
     }
 
+    /**
+     * turns date id (ex.20210307) into a readable format and sets it into a text view.
+     * @param dateID
+     * @param tv textview you want to set the date on
+     * @param yeartv textview you want to set the year on
+     */
     private void setFormattedDate(String dateID, TextView tv, TextView yeartv){
         String year = dateID.substring(0,4);
         String days = dateID.substring(6,8);
