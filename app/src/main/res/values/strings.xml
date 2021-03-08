@@ -34,4 +34,6 @@
     <string name="Weight">Weight</string>
     <string name="placeholderDate">January 1st</string>
     <string name="History">Log history</string>
+    <string name="Names">Names</string>
+    <string name="Categories">Categories</string>
 </resources>
