@@ -11,21 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RaskausSovellus">
-        <activity
-            android:name=".NeutralNamesActivity"
-            android:parentActivityName=".GenderNamesActivity" />
-        <activity
-            android:name=".FemaleNamesActivity"
-            android:parentActivityName=".GenderNamesActivity" />
-        <activity
-            android:name=".MaleNamesActivity"
-            android:parentActivityName=".GenderNamesActivity" />
-        <activity
-            android:name=".GenderNamesActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".LogInspect"
-            android:parentActivityName=".LogHistoryActivity" />
+        <activity android:name=".LogInspect"
+            android:parentActivityName=".LogHistoryActivity"/>
         <activity
             android:name=".LogHistoryActivity"
             android:parentActivityName=".MainActivity" />

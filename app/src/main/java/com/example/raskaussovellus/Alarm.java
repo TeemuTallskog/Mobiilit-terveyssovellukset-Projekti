@@ -60,6 +60,7 @@ public class Alarm extends AppCompatActivity {
                     // Edit Text shows hour and minute
                     timeHour.setText(String.format("%02d", hourOfDay));
                     timeMinute.setText(String.format("%02d", minute));
+
                 }
 
                 /**

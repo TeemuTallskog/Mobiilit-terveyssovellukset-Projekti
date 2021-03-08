@@ -158,13 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             return true;
         }
-        if (id == R.id.nav_names) {
-            Log.d("TAG", "settings clicked");
-            intent = new Intent(this, GenderNamesActivity.class);
-            startActivity(intent);
-            return true;
-        }
-
         if(id == R.id.inputHistory){
             intent = new Intent(this, LogHistoryActivity.class);
             startActivity(intent);
@@ -280,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         timerIsRunning = true;
         //
         mEndTime = System.currentTimeMillis() + timeStart;
-        mEndTimeCount = System.currentTimeMillis() + count;
+        //mEndTimeCount = System.currentTimeMillis() + count;
 
         countDownTimer = new CountDownTimer(timeStart, 1000) {
             StringBuilder timeDay = new StringBuilder();
@@ -289,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onTick(long millisUntilFinished) {
                 //
-                timeStartTest = millisUntilFinished;
+                //timeStartTest = millisUntilFinished;
 
                 timeDay.setLength(0);
                 timeWeek.setLength(0);
@@ -363,8 +356,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.putLong("startTimeInMillis", startTimeInMillis);
 
         //count
-        editor.putLong("days", count);
-        editor.putLong("startTimeInDays", timeStartTest);
+        //editor.putLong("days", count);
+        //editor.putLong("startTimeInDays", timeStartTest);
 
         editor.apply();
     }
@@ -376,8 +369,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         timeStart = prefGet.getLong("millisLeft", startTimeInMillis);
 
         //count
-        timeStartTest= prefGet.getLong("startTimeInDays", count);
-        count = prefGet.getLong("days", timeStartTest);
+        //timeStartTest= prefGet.getLong("startTimeInDays", count);
+        //count = prefGet.getLong("days", timeStartTest);
 
 
         mTimerRunning = prefGet.getBoolean("timerRunning", false);
@@ -393,6 +386,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
+
 
 
     //SharedPreferences for date
