@@ -37,7 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 CalendarDatabase db = new CalendarDatabase(SettingsActivity.this);
                 db.wipeData();
-                dialog.cancel();
+                finish();
             }
         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override

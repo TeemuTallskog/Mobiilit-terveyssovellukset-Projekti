@@ -1,9 +1,7 @@
 package com.example.raskaussovellus;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -103,23 +101,13 @@ public class CalendarInput extends AppCompatActivity {
         boolean isNumber = isNumeric(weightBox.getText().toString());
         if(!isNumber){
             weight = 0.0;
-        } else if(Double.parseDouble(weightBox.getText().toString()) > 600){
-            falseEntry("Entered weight is too big.");
-            return;
-        }else if(Double.parseDouble(weightBox.getText().toString()) < 0){
-            falseEntry("Please enter a positive weight");
-            return;
-        }
-        else{
+        } else{
             weight = Math.round(Double.parseDouble(weightBox.getText().toString())* 10) / 10.0;
         }
 
         if(customDataBox.getText().equals("")){
             customData = "Custom log";
-        } else if (customDataBox.getText().length() > 300){
-            falseEntry("Custom log is too long");
-            return;
-        }else{
+        } else{
             customData = customDataBox.getText().toString();
         }
 
@@ -155,18 +143,5 @@ public class CalendarInput extends AppCompatActivity {
             return false;
         }
         return true;
-    }
-
-    private void falseEntry(String error){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Error").setMessage(error).setCancelable(false)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
     }
 }
