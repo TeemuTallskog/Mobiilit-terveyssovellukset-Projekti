@@ -1,7 +1,6 @@
 package com.example.raskaussovellus;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -12,7 +11,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.format.DateUtils;
@@ -31,7 +29,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -198,8 +195,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             return true;
         }
+<<<<<<< HEAD
         if(id == R.id.nav_calls){
             intent = new Intent(this, Numbers.class);
+=======
+        if(id == R.id.nav_names){
+            intent = new Intent(this, GenderNamesActivity.class);
+>>>>>>> d4b40b9e5e5d164253c14ca990d20dd28e49e6e9
             startActivity(intent);
             return true;
         }
@@ -236,9 +238,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (id) {
             case DATE_DIALOG_ID:
                 // set current date and limit future date
-            DatePickerDialog dialog = new  DatePickerDialog(this, datePickerListener, year, month, day);
-            dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-            return dialog;
+                DatePickerDialog dialog = new  DatePickerDialog(this, datePickerListener, year, month, day);
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                return dialog;
         }
         return null;
     }
