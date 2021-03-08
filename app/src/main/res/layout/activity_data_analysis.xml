@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     tools:context=".DataAnalysis">
 
     <com.jjoe64.graphview.GraphView
@@ -24,6 +25,9 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:layout_weight="1"
+        android:fontFamily="serif"
+        android:textColor="#040404"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,24 +47,32 @@
             android:id="@+id/ThirtyRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="#040404"
             android:text="@string/ThirtyDays" />
 
         <RadioButton
             android:id="@+id/NinetyRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="#040404"
             android:text="@string/NinetyDays" />
 
         <RadioButton
             android:id="@+id/HalfYearRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="#040404"
             android:text="@string/HalfYear" />
 
         <RadioButton
             android:id="@+id/AllTimeRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="#040404"
             android:checked="false"
             android:text="@string/Everything" />
 
@@ -79,6 +91,8 @@
         <RadioButton
             android:id="@+id/WeightRadioBtn"
             android:layout_width="match_parent"
+            android:fontFamily="serif"
+            android:textColor="#040404"
             android:layout_height="wrap_content"
             android:text="@string/Weight" />
 
@@ -86,6 +100,8 @@
             android:id="@+id/MoodRadioBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="#040404"
             android:text="@string/MoodString" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
