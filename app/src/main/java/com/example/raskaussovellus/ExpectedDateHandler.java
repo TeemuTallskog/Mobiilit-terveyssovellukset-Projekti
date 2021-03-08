@@ -34,14 +34,14 @@ public class ExpectedDateHandler {
      * @param pickedDate is the picked date in milliseconds
      * @return  returns a String
      */
-    public String weeksLeft(long pickedDate){
+    public int weeksLeft(long pickedDate){
         long daysLeftMillis = getDaysLeftInMillis(pickedDate);
         if(daysLeftMillis > 0) {
             int daysLeft = (int) TimeUnit.MILLISECONDS.toDays(daysLeftMillis);
             int weeksLeft = daysLeft / 7;
-            return weeksLeft + " Weeks left";
+            return weeksLeft;
         }else{
-            return "0 Weeks Left";
+            return 0;
         }
 
     }

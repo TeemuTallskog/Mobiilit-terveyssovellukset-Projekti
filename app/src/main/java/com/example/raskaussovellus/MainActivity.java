@@ -93,9 +93,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ExpectedDateHandler dateHandler = new ExpectedDateHandler();
         long pickedDate = preferences.getLong(PREFS, 0);
         daysLeftTV.setText(dateHandler.daysLeft(pickedDate));
-        weekLeftTV.setText(dateHandler.weeksLeft(pickedDate));
+        weekLeftTV.setText(dateHandler.weeksLeft(pickedDate) + " Weeks left");
         date.setText(dateHandler.getExpectedDate(pickedDate));
         updateProgressBar(dateHandler.getProgress(pickedDate));
+        getFunFact(dateHandler.weeksLeft(pickedDate));
     }
 
 
@@ -107,6 +108,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.Progress_bar);
         Log.i("tag", String.valueOf(value));
         progressBar.setProgress(value);
+        TextView textView = findViewById(R.id.precentageText);
+        textView.setText(String.valueOf(value) + "%");
+    }
+
+    /**
+     * retrieves a string from FunFacts.java and sets it on a textview
+     * @param week param is weeks left
+     */
+    private void getFunFact(int week){
+        if(week > 39) {
+            week = 40 - week;
+        }else {
+            week = 41;
+        }
+        TextView textView = findViewById(R.id.funFact);
+        FunFacts funFacts = new FunFacts();
+        textView.setText(funFacts.getFact(week));
     }
 
     /**
