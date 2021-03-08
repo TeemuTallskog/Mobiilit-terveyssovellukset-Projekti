@@ -32,6 +32,10 @@
             android:id="@+id/nav_calls"
             android:icon="@drawable/ic_baseline_call_24"
             android:title="@string/Numbers"/>
+        <item
+            android:id="@+id/nav_credits"
+            android:icon="@drawable/ic_baseline_copyright_24"
+            android:title="@string/Credits"/>
     </group>
 
 </menu>

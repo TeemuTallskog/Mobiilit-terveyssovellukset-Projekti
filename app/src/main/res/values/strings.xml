@@ -35,10 +35,19 @@
     <string name="Categories">Categories</string>
     <string name="datePicker">Pick conception date</string>
     <string name="Feelings">Put your feelings</string>
-    <string name="funFact"><a href = "https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/">fun fact</a></string>
+    <string name="funFact"><a href="https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/">fun fact</a></string>
     <string name="Emergency">Hätäkeskus\n112</string>
     <string name="Paivystys">Päivystys\n116 117</string>
     <string name="myrkytys">Myrkytyskeskus\n0800 147 111</string>
     <string name="Neuvonta">Äidin\nLääkenouvonta\n09 4717 6500</string>
     <string name="Numbers">Numbers</string>
+    <string name="Credits">Credits</string>
+    <string name="Developers">Developers</string>
+    <string name="DevsNames">Oscar Sihvonen\nRamiz Widad\nSatu Petäjäjärvi\nTeemu Tallskog</string>
+    <string name="funFactsCredit">Fun facts</string>
+    <string name="funfactLink"><a href = "https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/" >Nyt vauva kohdussasi on yhtä iso kuin…</a></string>
+    <string name="funfactsCreator">Hanna Roihuvaara</string>
+    <string name="BabyNames">Neutral baby names</string>
+    <string name="babyNamesCredit"><a href="https://kaksplus.fi/raskaus/haaveissa-vauva/kauneimmat-sukupuolineutraalit-nimet-eeri-kaiho-selmi-ja-17-muuta-nimea-jotka-eivat-katso-sukupuolta/">Kauneimmat sukupuolineutraalit nimet</a></string>
+    <string name="neutralNamesMaker">Kia Toivanen, 24.7.2020</string>
 </resources>

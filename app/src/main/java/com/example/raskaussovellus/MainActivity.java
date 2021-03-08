@@ -167,38 +167,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent = new Intent(this, CalendarActivity.class);
             startActivity(intent);
             return true;
-        }
-        if(id == R.id.nav_data){
+        }if(id == R.id.nav_data){
             intent = new Intent(this, DataAnalysis.class);
             startActivity(intent);
             return true;
-        }
-
-        if (id == R.id.nav_info) {
+        }if (id == R.id.nav_info) {
             Log.d("TAG", "info clicked");
             intent = new Intent(this, InfoActivity.class);
             startActivity(intent);
             return true;
-        }
-
-        if (id == R.id.nav_settings) {
+        }if (id == R.id.nav_settings) {
             Log.d("TAG", "settings clicked");
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
-        }
-        if(id == R.id.inputHistory){
+        }if(id == R.id.inputHistory){
             intent = new Intent(this, LogHistoryActivity.class);
             startActivity(intent);
             return true;
-        }
-        if(id == R.id.nav_calls) {
+        }if(id == R.id.nav_calls) {
             intent = new Intent(this, Numbers.class);
             startActivity(intent);
             return true;
-        }
-        if(id == R.id.nav_names){
+        }if(id == R.id.nav_names){
             intent = new Intent(this, GenderNamesActivity.class);
+            startActivity(intent);
+            return true;
+        }if(id == R.id.nav_credits){
+            intent = new Intent(this, CreditsActivity.class);
             startActivity(intent);
             return true;
         }
