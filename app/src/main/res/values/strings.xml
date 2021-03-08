@@ -34,4 +34,7 @@
     <string name="Weight">Weight</string>
     <string name="placeholderDate">January 1st</string>
     <string name="History">Log history</string>
+    <string name="datePicker">Datepicker</string>
+    <string name="Feelings">Put your feelings</string>
+    <string name="funFact"><a href = "https://www.vau.fi/raskaus/nyt-vauva-kohdussasi-on-yhta-iso-kuin/">fun fact</a></string>
 </resources>
