@@ -1,5 +1,8 @@
 package com.example.raskaussovellus;
 
+/**
+ * Contains a link to an article and the title.
+ */
 public class Information {
     private String name;
     private String website;

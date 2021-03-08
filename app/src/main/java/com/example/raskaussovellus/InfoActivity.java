@@ -13,6 +13,9 @@ import android.widget.ListView;
 
 import java.util.Objects;
 
+/**
+ * Displays useful links from Link.java in a list view
+ */
 public class InfoActivity extends AppCompatActivity {
 
     @Override
@@ -23,14 +26,10 @@ public class InfoActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Useful links");
 
-        /**
-         * Find the list view from layout
-         */
+        //Find the list view from layout
         ListView lv = findViewById(R.id.informationList);
 
-        /**
-         * adapter uses to get the actual data to the view.
-         */
+        //adapter uses to get the actual data to the view.
         lv.setAdapter(new ArrayAdapter<Information>(
                 this,
                 R.layout.link,
@@ -38,20 +37,15 @@ public class InfoActivity extends AppCompatActivity {
 
         );
 
-        /**
-         * waiting when button is clicked
-         */
+        //waiting when button is clicked
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
             /**
              * gets the index of clicked item
              */
+            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                /**
-                 * Uri.parse -> Creates a Uri which parses the given encoded
-                 * ACTION_VIEW -> Display the data to the user
-                 */
+                 //Uri.parse -> Creates a Uri which parses the given encoded
+                 //ACTION_VIEW -> Display the data to the user
                 Intent nextActivity = new Intent(Intent.ACTION_VIEW, Uri.parse(Link.getInstance().getLink().get(i).getWebsite()));
                 startActivity(nextActivity);
             }

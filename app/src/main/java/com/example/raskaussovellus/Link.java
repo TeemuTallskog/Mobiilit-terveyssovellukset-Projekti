@@ -3,11 +3,17 @@ package com.example.raskaussovellus;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Singleton class with an ArrayList with information objects.
+ */
 public class Link {
     private List<Information> information;
 
     private static final Link ourInstance = new Link();
 
+    /**
+     * @return returns the instance
+     */
     public static Link getInstance() {
         return ourInstance;
     }
