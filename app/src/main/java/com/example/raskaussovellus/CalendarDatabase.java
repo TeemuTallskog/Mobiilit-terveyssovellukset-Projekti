@@ -108,6 +108,7 @@ public class CalendarDatabase extends SQLiteOpenHelper {
        if(cursor != null) {
            cursor.moveToFirst();
        }
+       //gets the amount of valid weight data from database. if weight is below 1kg it will be ignored
        int validWeightCount = 0;
        for(int i = 0; i<cursor.getCount(); i++){
            if(cursor.getDouble(1)> 1.0){
@@ -149,6 +150,25 @@ public class CalendarDatabase extends SQLiteOpenHelper {
            cursor.moveToNext();
        }
        return dataPoints;
+   }
+
+    /**
+     * Pulls all data from the database and returns in in arraylist filled with CalendarData objects.
+     * @return ArrayList<CalendarData>. CalendarData contains DateID, CustomText, Weight, Mood.
+     *
+     */
+   public ArrayList<CalendarData> getAllData(){
+       SQLiteDatabase db = this.getReadableDatabase();
+       ArrayList<CalendarData> calendarDataArrayList = new ArrayList<>();
+       @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + KEY_ID + " DESC", null);
+       if(cursor != null){
+           cursor.moveToFirst();
+       }
+       for(int i = 0;i<cursor.getCount(); i++){
+            calendarDataArrayList.add(new CalendarData(cursor.getString(0), cursor.getString(1), cursor.getDouble(2), cursor.getInt(3)));
+            cursor.moveToNext();
+       }
+       return calendarDataArrayList;
    }
 
 

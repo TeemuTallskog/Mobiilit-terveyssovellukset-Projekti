@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">RaskausSovellus</string>
+    <string name="app_name">Something to wait</string>
     <string name="Test">Test</string>
+    <string name="date"></string>
+    <string name="days"></string>
+    <string name="weeks"></string>
+    <string name="saveButton">Save and start countdown</string>
     <string name="Submit">Submit</string>
     <string name="Remove">Remove log</string>
     <string name="WeightKey">0.0</string>
@@ -28,4 +32,6 @@
     <string name="WipeData">Remove all calendar data</string>
     <string name="MoodString">Mood</string>
     <string name="Weight">Weight</string>
+    <string name="placeholderDate">January 1st</string>
+    <string name="History">Log history</string>
 </resources>

@@ -18,13 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/Test"
-<<<<<<< HEAD
         android:fontFamily="serif"
         android:textColor="#040404"
-        android:textSize="20dp"
-=======
-        android:textSize="28sp"
->>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +29,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="86dp"
         android:text="@string/weight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,15 +37,9 @@
 
     <EditText
         android:id="@+id/weightInput"
-<<<<<<< HEAD
         android:layout_width="86dp"
         android:layout_height="45dp"
-        android:layout_marginTop="64dp"
-=======
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
->>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
+        android:layout_marginTop="22dp"
         android:autofillHints=""
         android:ems="10"
         android:gravity="center"
@@ -61,21 +51,13 @@
 
     <TextView
         android:id="@+id/textView"
-<<<<<<< HEAD
         android:layout_width="44dp"
         android:layout_height="46dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="serif"
         android:gravity="center"
-=======
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
->>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
         android:text="@string/Kg"
         android:textColor="#040404"
         android:textSize="26sp"
@@ -95,15 +77,9 @@
 
     <RadioGroup
         android:id="@+id/emojiRadioGrp"
-<<<<<<< HEAD
         android:layout_width="199dp"
         android:layout_height="57dp"
-        android:layout_marginTop="220dp"
-=======
-        android:layout_width="wrap_content"
-        android:layout_height="54dp"
-        android:layout_marginTop="8dp"
->>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
+        android:layout_marginTop="22dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,12 +154,12 @@
         android:layout_width="125dp"
         android:layout_height="64dp"
         android:layout_marginBottom="32dp"
-        android:fontFamily="serif"
-        android:textSize="20dp"
-        android:onClick="submitData"
         android:background="@drawable/rounded"
+        android:fontFamily="serif"
+        android:onClick="submitData"
         android:text="@string/Submit"
         android:textColor="#040404"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="#0FD1BF"
         app:layout_constraintBottom_toBottomOf="parent"

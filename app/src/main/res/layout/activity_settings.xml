@@ -18,24 +18,25 @@
         android:onClick="launchActivity"
         android:text="Alarm"
         android:textColor="#040404"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:backgroundTint="#0FD1BF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<<<<<<< HEAD
     <TextView
         android:layout_width="411dp"
         android:layout_height="75dp"
-        android:text="Settings"
-        android:gravity="center"
         android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/Setings"
         android:textColor="#040404"
+        android:textSize="50sp"
         android:textStyle="normal"
-        android:textSize="50dp"/>
-=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -46,5 +47,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
->>>>>>> 5ff5d6c8b2b059a951250ee0f411b3c7bd1acd1f
 </androidx.constraintlayout.widget.ConstraintLayout>

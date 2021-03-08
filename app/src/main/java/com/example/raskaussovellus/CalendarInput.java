@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import java.util.Objects;
 public class CalendarInput extends AppCompatActivity {
     private String dateID;
     private CalendarData calendarData;
+    private String selectedDate;
 
 
     @Override
@@ -21,11 +23,18 @@ public class CalendarInput extends AppCompatActivity {
         setContentView(R.layout.activity_calendar_input);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
-        dateID = intent.getStringExtra(CalendarActivity.DATE_ID);
-        String selectedDate = intent.getStringExtra(CalendarActivity.DATE);
-
+        String origin = intent.getStringExtra("Origin");
+        Log.i("tag", origin);
+        if(origin.equals("Main")){
+            dateID = intent.getStringExtra(MainActivity.DATE_ID);
+            selectedDate = intent.getStringExtra(MainActivity.DATE);
+        }else if(origin.equals("Calendar")) {
+            dateID = intent.getStringExtra(CalendarActivity.DATE_ID);
+            selectedDate = intent.getStringExtra(CalendarActivity.DATE);
+        }
         TextView displayDate = findViewById(R.id.dateView);
         displayDate.setText(selectedDate);
+        Log.i("Tag",dateID);
         calendarData = new CalendarDatabase(this).getCalendarData(dateID);
         setDefaults(calendarData);
     }
