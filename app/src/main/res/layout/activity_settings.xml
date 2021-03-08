@@ -37,19 +37,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="241dp"
         android:layout_height="97dp"
         android:layout_marginTop="16dp"
-        android:onClick="wipeData"
         android:background="@drawable/rounded"
         android:fontFamily="serif"
+        android:onClick="wipeData"
+        android:text="@string/WipeData"
+        android:textColor="#040404"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:backgroundTint="#0FD1BF"
-        android:textColor="#040404"
-        android:text="@string/WipeData"
+        app:backgroundTint="#E15353"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />

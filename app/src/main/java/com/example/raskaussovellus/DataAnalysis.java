@@ -44,7 +44,7 @@ public class DataAnalysis extends AppCompatActivity {
 
     private GraphView graphView;
     private LineGraphSeries<DataPoint> lineGraphSeries;
-    private PointsGraphSeries<DataPoint> pointsGraphSeries;
+    //private PointsGraphSeries<DataPoint> pointsGraphSeries;
     private BarGraphSeries<DataPoint> barGraphSeries;
     private DataPoint[] dataPoints;
     private DataPoint[] moodDataPoints;
@@ -77,7 +77,7 @@ public class DataAnalysis extends AppCompatActivity {
         sixMonthsInMillis = TimeUnit.DAYS.toMillis(180);
 
         lineGraphSeries = new LineGraphSeries<>(dataPoints);
-        pointsGraphSeries = new PointsGraphSeries<>(dataPoints);
+        //pointsGraphSeries = new PointsGraphSeries<>(dataPoints);
         barGraphSeries = new BarGraphSeries<>(moodDataPoints);
 
 
@@ -232,7 +232,7 @@ public class DataAnalysis extends AppCompatActivity {
         if(moodRadioGroup.getCheckedRadioButtonId() == R.id.WeightRadioBtn){
             viewport.setYAxisBoundsManual(false);
             graphView.addSeries(lineGraphSeries);
-            graphView.addSeries(pointsGraphSeries);
+            //graphView.addSeries(pointsGraphSeries);
             graphView.getGridLabelRenderer().setVerticalLabelsVisible(true);
         }
         if(moodRadioGroup.getCheckedRadioButtonId() == R.id.MoodRadioBtn){
@@ -294,7 +294,7 @@ public class DataAnalysis extends AppCompatActivity {
                     } else {
                         weightLenght = weightLenght - 1;
                     }
-                    outputString = "Your weight in the past 90 days: ";
+                    outputString = "Your average weight in the past 90 days: ";
                 }
             } else if (selectedId == R.id.HalfYearRadio) {
                 for (int i = 0; i < dataPoints.length; i++) {
