@@ -1,5 +1,7 @@
 package com.example.raskaussovellus;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class FunFacts {
@@ -8,6 +10,7 @@ public class FunFacts {
     }
 
     public String getFact(int week){
+        Log.i("tag, funfact", String.valueOf(week));
         if(week > 20){
             return topArray(week);
         }
@@ -39,12 +42,8 @@ public class FunFacts {
         infoList.add("Lapsesi on nyt alustabletin mittainen! (täyspituus: 44cm)");
         infoList.add("Lapsesi on nyt uunipellin pitkän sivun mittainen! (täyspituus: 46 cm)");
         infoList.add("Lapsesi on nyt paistinpannun kokoinen! (48 cm)");
-        infoList.add("Lapsesi on nyt 24-tuumaisen näytön kokoinen! (49 cm)");
         infoList.add("Lapsesi on nyt keskimittaisen vastasyntyneen kokoinen! (täysmitta: 51 cm)");
 
-        if(data > 20){
-            return infoList.get(19);
-        }
         return infoList.get(data);
     }
 

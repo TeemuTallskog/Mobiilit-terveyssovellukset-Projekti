@@ -117,11 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * @param week param is weeks left
      */
     private void getFunFact(int week){
-        if(week > 39) {
-            week = 40 - week;
-        }else {
-            week = 41;
-        }
+        week = 40 - week;
         TextView textView = findViewById(R.id.funFact);
         FunFacts funFacts = new FunFacts();
         textView.setText(funFacts.getFact(week));
