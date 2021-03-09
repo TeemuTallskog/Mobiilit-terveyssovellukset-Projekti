@@ -12,7 +12,9 @@ import android.view.View;
 
 import java.util.Objects;
 
-
+/**
+ * Settings contains the ability to wipe all data from database and to set an alarm
+ */
 public class SettingsActivity extends AppCompatActivity {
 
 

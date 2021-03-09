@@ -3,6 +3,9 @@ package com.example.raskaussovellus;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Gender singleton containing genders
+ */
 public class GenderSingleton {
 
     //One instance is created automatically when the class is loaded

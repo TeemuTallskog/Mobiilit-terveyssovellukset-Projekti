@@ -1,5 +1,8 @@
 package com.example.raskaussovellus;
 
+/**
+ * Object containing gender
+ */
 public class Genders {
     private String gender;
 

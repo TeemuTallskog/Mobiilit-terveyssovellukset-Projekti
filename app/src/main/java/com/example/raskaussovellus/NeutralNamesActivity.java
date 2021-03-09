@@ -10,6 +10,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * displays a list of neutral names
+ */
 public class NeutralNamesActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter arrayAdapter;

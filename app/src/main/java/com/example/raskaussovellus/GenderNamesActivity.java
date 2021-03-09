@@ -12,6 +12,9 @@ import android.widget.ListView;
 
 import java.util.Objects;
 
+/**
+ * Shows A list view with genders to choose from.
+ */
 public class GenderNamesActivity extends AppCompatActivity {
 
     @Override

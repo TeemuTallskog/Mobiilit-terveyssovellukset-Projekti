@@ -15,6 +15,9 @@ import android.widget.Button;
 
 import java.util.Objects;
 
+/**
+ * list of useful numbers that on click dials them.
+ */
 public class Numbers extends AppCompatActivity {
 
     Button button3;

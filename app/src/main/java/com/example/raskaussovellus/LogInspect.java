@@ -13,6 +13,9 @@ import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Shows data based on the listview item clicked
+ */
 public class LogInspect extends AppCompatActivity {
 
     @Override

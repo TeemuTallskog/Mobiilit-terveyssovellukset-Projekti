@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Draws a list view of female names.
+ */
 public class FemaleNamesActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter arrayAdapter;
