@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewDate();
         btnOnClickListener();
 
-        /**
-         * if id (imageMenu) clicked; drawerLayout will open.
-         */
+        //if id (imageMenu) clicked; drawerLayout will open.
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener(){
             @Override
@@ -96,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /**
      * updates the progress bar
-     * @param value inputvalue is the precentage.
+     * @param value input value is the percentage.
      */
     private void updateProgressBar(int value){
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.Progress_bar);
@@ -107,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     /**
-     * retrieves a string from FunFacts.java and sets it on a textview
+     * retrieves a string from FunFacts.java and sets it on a textView
      * @param week param is weeks left
      */
     private void getFunFact(int week){
@@ -133,8 +131,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra(DATE, date);
         intent.putExtra(DATE_ID, dateID);
         startActivity(intent);
-
     }
+
 
     /**
      * if value is under 10. it adds a 0 in front of the number.
@@ -167,33 +165,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent = new Intent(this, CalendarActivity.class);
             startActivity(intent);
             return true;
-        }if(id == R.id.nav_data){
+        }else if(id == R.id.nav_data){
             intent = new Intent(this, DataAnalysis.class);
             startActivity(intent);
             return true;
-        }if (id == R.id.nav_info) {
+        }else if(id == R.id.nav_info) {
             Log.d("TAG", "info clicked");
             intent = new Intent(this, InfoActivity.class);
             startActivity(intent);
             return true;
-        }if (id == R.id.nav_settings) {
+        }else if(id == R.id.nav_settings) {
             Log.d("TAG", "settings clicked");
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
-        }if(id == R.id.inputHistory){
+        }else if(id == R.id.inputHistory){
             intent = new Intent(this, LogHistoryActivity.class);
             startActivity(intent);
             return true;
-        }if(id == R.id.nav_calls) {
+        }else if(id == R.id.nav_calls) {
             intent = new Intent(this, Numbers.class);
             startActivity(intent);
             return true;
-        }if(id == R.id.nav_names){
+        }else if(id == R.id.nav_names){
             intent = new Intent(this, GenderNamesActivity.class);
             startActivity(intent);
             return true;
-        }if(id == R.id.nav_credits){
+        }else if(id == R.id.nav_credits){
             intent = new Intent(this, CreditsActivity.class);
             startActivity(intent);
             return true;
@@ -212,7 +210,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         day = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
-
+    /**
+     * OnClickListener button calls date dialog
+     */
     public void btnOnClickListener() {
         btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
         btnChangeDate.setOnClickListener(new View.OnClickListener() {
@@ -224,11 +224,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    /**
+     * get current date and limit future date
+     * @param id
+     * @return
+     */
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DATE_DIALOG_ID:
-                // set current date and limit future date
                 DatePickerDialog dialog = new  DatePickerDialog(this, datePickerListener, year, month, day);
                 dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 return dialog;

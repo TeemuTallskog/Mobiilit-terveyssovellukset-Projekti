@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenderSingleton {
-    /**
-     * Instance is created automatically when the class is loaded
-     */
+
+    //One instance is created automatically when the class is loaded
     private static final GenderSingleton genderInstance = new GenderSingleton();
 
     private List<Genders> genders;
@@ -25,18 +24,13 @@ public class GenderSingleton {
      */
     private GenderSingleton() {
         genders = new ArrayList<Genders>();
-
-
-        genders = new ArrayList<Genders>();
         genders.add(new Genders("\nFemale names\n"));
         genders.add(new Genders("\nMales names\n"));
         genders.add(new Genders("\nNeutral names\n"));
-
-
     }
 
     /**
-     * returns genders to the ListView widget on each row
+     * lists genders to the ListView widget
      * @return
      */
     public List<Genders> getGenders() {

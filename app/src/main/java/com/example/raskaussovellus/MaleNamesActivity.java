@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class MaleNamesActivity extends AppCompatActivity {
     private ListView listView;
+    private ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +24,7 @@ public class MaleNamesActivity extends AppCompatActivity {
 
         listView =(ListView)findViewById(R.id.lvMale);
 
-        /**
-         * Creates ne list and add names to it
-         */
+        //Creates ArrayList and add name strings to it
         ArrayList<String> arrayList= new ArrayList<>();
         arrayList.add("\nJuhani\n");
         arrayList.add("\nOlavi\n");
@@ -63,10 +62,9 @@ public class MaleNamesActivity extends AppCompatActivity {
         arrayList.add("\nAatos\n");
         arrayList.add("\nSakari\n");
 
-        /**
-         * list layout type
-         */
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.link, arrayList);
+
+        //list layout type
+        arrayAdapter = new ArrayAdapter(this, R.layout.link, arrayList);
         listView.setAdapter(arrayAdapter);
 
     }
